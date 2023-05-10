@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Меню </title>
+</head>
+
+
+
+
+
+<body>
+
+    <a href="{% url 'create' %}?model=Product">
+        <button><b> Добавить вид товара </b></button>
+    </a>
+
+    <a href="{% url 'delete' %}?model=Product">
+        <button><b> Удалить вид товара </b></button>
+    </a>
+
+    <a href="{% url 'update' %}?model=Product">
+        <button><b> Редактировать товар </b></button>
+    </a>
+
+    <a href="{% url 'show' %}?model=Product">
+        <button><b> Показать товары </b></button>
+    </a>
+
+</body>
+</html>
