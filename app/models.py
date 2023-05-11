@@ -16,7 +16,7 @@ class Product(Model):
     #category = ForeignKey()
 
     def __str__(self):
-        return str(self.name)
+        return str(self.name) + str(self.price)
 
     class Meta:
         db_table = 'Product'

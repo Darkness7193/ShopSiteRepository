@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from app.models import Product, Category, Profile
 
 
 def index(request):
@@ -8,8 +9,8 @@ def index(request):
 
 
 def create(request):
-    model = request.GET.get('model')
     context = {
+
     }
     return render(request, 'app/create.html', context)
 
@@ -22,6 +23,7 @@ def delete(request):
 
 def show(request):
     context = {
+        'products': Product.objects.all(),
     }
     return render(request, 'app/show.html', context)
 
