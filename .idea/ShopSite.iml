@@ -26,6 +26,7 @@
         <option value="$MODULE_DIR$/app/templates" />
         <option value="$MODULE_DIR$/Includes/templates" />
         <option value="$MODULE_DIR$/ShopSite/templates" />
+        <option value="$MODULE_DIR$/ProfilesApp/templates" />
       </list>
     </option>
   </component>
