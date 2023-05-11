@@ -31,3 +31,7 @@ def update(request):
     context = {
     }
     return render(request, 'app/update.html', context)
+
+
+def css_renderer(request, filename):
+    return render(request, filename + '.css', {}, content_type="text/css")

@@ -1,7 +1,7 @@
 {% load static %}
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <title> Меню </title>
@@ -10,10 +10,15 @@
 </head>
 
 
-
-
-
 <body>
+
+    <div class="global-test">
+        <b> global-test </b>
+    </div>
+
+    <div class="test">
+        <b> test </b>
+    </div>
 
     <a href="{% url 'create' %}?model=Product">
         <button><b> Добавить вид товара </b></button>
