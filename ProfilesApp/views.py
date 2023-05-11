@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from .models import Profile
-from StadiumTickets.myShortcuts import get_or_none
+from ShopSite.MyShortcuts import get_or_none
 
 
 def logIn(request):
