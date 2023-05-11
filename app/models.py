@@ -34,18 +34,3 @@ class Category(Model):
 
     class Meta:
         db_table = 'Category'
-
-
-class Profile(Model):
-    objects = MyManager()
-
-    user = OneToOneField(User, on_delete=CASCADE)
-    requisites = CharField(max_length=20)
-
-    def __str__(self):
-        return self.requisites
-
-    class Meta:
-        db_table = 'Profile'
-
-

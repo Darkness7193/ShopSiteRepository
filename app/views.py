@@ -1,6 +1,5 @@
 from django.shortcuts import render
-from app.models import Product, Category, Profile
-
+from app.models import Product, Category
 
 def index(request):
     context = {
