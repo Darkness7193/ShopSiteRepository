@@ -60,9 +60,3 @@
     padding-right: 2px;
 }
 
-.global-test {
-    width: 200px;
-    height: 200px;
-    color: #a90101;
-    background: var(--main-color);
-}

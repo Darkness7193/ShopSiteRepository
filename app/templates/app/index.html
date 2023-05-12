@@ -14,20 +14,24 @@
 
     {% include 'ShopSite/header.html' %}
 
-    <a href="{% url 'create' %}?model=Product">
+    <a href="{% url 'create' %}">
         <button><b> Добавить вид товара </b></button>
     </a>
 
-    <a href="{% url 'delete' %}?model=Product">
+    <a href="{% url 'delete' %}">
         <button><b> Удалить вид товара </b></button>
     </a>
 
-    <a href="{% url 'update' %}?model=Product">
+    <a href="{% url 'update' %}">
         <button><b> Редактировать товар </b></button>
     </a>
 
-    <a href="{% url 'show' %}?model=Product">
+    <a href="{% url 'show' %}">
         <button><b> Показать товары </b></button>
+    </a>
+
+    <a href="{% url 'crud' %}">
+        <button><b> Действия с товарами </b></button>
     </a>
 
 </body>

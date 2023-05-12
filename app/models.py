@@ -13,24 +13,12 @@ class Product(Model):
     description = CharField(max_length=400)
     count = PositiveIntegerField()
     image = ImageField()
-    #category = ForeignKey()
 
     def __str__(self):
-        return str(self.name) + str(self.price)
+        return f'{self.name} {self.price}'
+
+    def all_data(self):
+        return f'{self.name} {self.price} {self.description} {self.count} {self.image}'
 
     class Meta:
         db_table = 'Product'
-
-
-class Category(Model):
-    objects = MyManager()
-
-    name = CharField(max_length=20)
-    description = CharField(max_length=400)
-    image = ImageField()
-
-    def __str__(self):
-        return str(self.name)
-
-    class Meta:
-        db_table = 'Category'

@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from app.models import Product, Category
+from app.models import Product
 
 def index(request):
     context = {
@@ -33,5 +33,8 @@ def update(request):
     return render(request, 'app/update.html', context)
 
 
-def css_renderer(request, filename):
-    return render(request, filename + '.css', {}, content_type="text/css")
+def crud(request):
+    context = {
+        'products': Product.objects.all()
+    }
+    return render(request, 'app/crud.html', context)
