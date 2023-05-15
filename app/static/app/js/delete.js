@@ -1,14 +1,18 @@
-$(document).ready(function() {
-    $(document).on("click", ".delete", function () {
-        let tr = $(this).parents("tr");
-        `
-        $.ajax({
-            method: 'post',
-            url: '{% url 'delete_product' %}',
-            data: {'delete_id':tr.attr("id")},
-        });
-        `
-        tr.remove();
-        $(".create-new").removeAttr("disabled");
+function ajaxDelete(tr) {
+    $.ajax({
+        method: 'post',
+        url: delete_product_view,
+        data: {'delete_id': tr.attr("id")},
     });
+}
+
+$(document).ready(function() {
+    $(".delete").click(function() {
+        let tr = $(this).parents("tr");
+        $().click(ajaxDelete(tr));
+
+        $(".create-new").removeAttr("disabled");
+        tr.remove();
+    });
+
 });
