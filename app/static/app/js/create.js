@@ -3,7 +3,7 @@ function ajaxCreate(tr) {
 		method: 'post',
 		url: create_product_view,
 		data: {
-			'edit_id':tr.attr("id"),
+			'update_id':tr.attr("id"),
 			'name': document.getElementsById('name').textContent,
 			'price': document.getElementsById('price').textContent,
 			'discription': document.getElementsById('description').textContent,
@@ -28,12 +28,11 @@ $(document).ready(function(){
 		$(this).parents("tr").find(".error").first().focus();
 		if(!empty){
             tr = $(this).parents("tr");
-			$().click(ajaxCreate(tr));
 
 			input.each(function(){
 				$(this).parent("td").html($(this).val());
 			});
-			tr.find(".create, .edit").toggle();
+			tr.find(".create, .update").toggle();
 			$(".create-new").removeAttr("disabled");
 
         }

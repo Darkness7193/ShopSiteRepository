@@ -44,13 +44,10 @@ def create_product(request):
 
 
 @csrf_exempt
-def edit_product(request):
-    edit_id = request.POST.get('edit_id')
-    print('??????', request.POST.get('fields'))
-    product = Product.objects.filter(id=int(edit_id))
+def update_product(request):
+    update_id = request.POST.get('update_id')
 
-    #product.name = request.POST.get('fields')
-
+    product = Product.objects.filter(id=int(update_id))
 
     product.save()
     return JsonResponse({})

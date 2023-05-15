@@ -1,6 +1,6 @@
 let actions = `
     <a class="create" title="Create" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-    <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+    <a class="update" title="Update" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
     <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
 `;
 
@@ -18,7 +18,7 @@ $(document).ready(function(){
 			<td>` + actions + `</td>
         </tr>`;
     	$("table").append(row);
-		$("table tbody tr").eq(index + 1).find(".create, .edit").toggle();
+		$("table tbody tr").eq(index + 1).find(".create, .update").toggle();
         $('[data-toggle="tooltip"]').tooltip();
     });
 });
