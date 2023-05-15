@@ -12,7 +12,6 @@ class Product(Model):
     price = DecimalField(max_digits=6, decimal_places=2)
     description = CharField(max_length=400)
     count = PositiveIntegerField()
-    image = ImageField()
 
     def __str__(self):
         return f'{self.name} {self.price}'
