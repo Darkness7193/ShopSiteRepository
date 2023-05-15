@@ -14,5 +14,4 @@ $(document).ready(function() {
         $(".create-new").removeAttr("disabled");
         tr.remove();
     });
-
 });
