@@ -19,7 +19,11 @@
 
     <link rel="stylesheet" href="{% static 'ShopSite/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'app/css/crud.css' %}">
-    <script src="{% static 'app/js/crud.js' %}"></script>
+
+    <script src="{% static 'app/js/create.js' %}"></script>
+    <script src="{% static 'app/js/create-new.js' %}"></script>
+    <script src="{% static 'app/js/delete.js' %}"></script>
+    <script src="{% static 'app/js/update.js' %}"></script>
 
 
 </head>
@@ -30,7 +34,7 @@
             <div style="display:flex;">
                 <h3 style="flex-grow:100;"><b> Товары </b></h3>
                 <div class="h-w-fit-content"></div>
-                <button type="button" class="btn btn-info add-new"><i class="fa fa-plus"></i> Add New</button>
+                <button type="button" class="btn btn-info create-new"><i class="fa fa-plus"></i> Добавить </button>
             </div>
             <table class="table table-bordered">
                 <thead>
@@ -50,7 +54,7 @@
                             <td>{{product.description}}</td>
                             <td>{{product.count}}</td>
                             <td>
-                                <a class="add" title="Add" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                                <a class="create" title="Create" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
                                 <a class="edit" title="Edit" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
                                 <a class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
                             </td>

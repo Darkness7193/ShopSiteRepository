@@ -17,7 +17,7 @@ body {
     font-size: 22px;
 }
 
-.table-title .add-new {
+.table-title .create-new {
     float: right;
     height: 30px;
     font-weight: bold;
@@ -28,7 +28,7 @@ body {
     line-height: 13px;
 }
 
-.table-title .add-new i {
+.table-title .create-new i {
     margin-right: 4px;
 }
 
@@ -57,7 +57,7 @@ table.table td a {
     min-width: 24px;
 }
 
-table.table td a.add {
+table.table td a.create {
     color: #27C46B;
 }
 
@@ -73,7 +73,7 @@ table.table td i {
     font-size: 19px;
 }
 
-table.table td a.add i {
+table.table td a.create i {
     font-size: 24px;
     margin-right: -1px;
     position: relative;
@@ -91,7 +91,7 @@ table.table .form-control.error {
     border-color: #f50000;
 }
 
-table.table td .add {
+table.table td .create {
     display: none;
 }
 
