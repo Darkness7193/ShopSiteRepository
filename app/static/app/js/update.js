@@ -11,15 +11,14 @@ function ajaxUpdate(tr) {
 
 
 $(document).ready(function() {
-    $(document).on("click", ".update", function () {
+    $(document).on("click", ".update-btn", function () {
         let tr = $(this).parents("tr");
-        ajaxUpdate(tr);
 
         tr.find("td:not(:last-child)").each(function () {
             $(this).html('<input type="text" class="form-control" value="' + $(this).text() + '">');
         });
 
-        $(this).parents("tr").find(".create, .update").toggle();
+        tr.find(".create-btn, .update-btn").toggle();
         $(".create-new").attr("disabled", "disabled");
     });
 });

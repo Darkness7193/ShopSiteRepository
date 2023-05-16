@@ -57,15 +57,15 @@ table.table td a {
     min-width: 24px;
 }
 
-table.table td a.create {
+table.table td a.create-btn {
     color: #27C46B;
 }
 
-table.table td a.update {
+table.table td a.update-btn {
     color: #FFC107;
 }
 
-table.table td a.delete {
+table.table td a.delete-btn {
     color: #E34724;
 }
 
@@ -73,7 +73,7 @@ table.table td i {
     font-size: 19px;
 }
 
-table.table td a.create i {
+table.table td a.create-btn i {
     font-size: 24px;
     margin-right: -1px;
     position: relative;
@@ -91,7 +91,7 @@ table.table .form-control.error {
     border-color: #f50000;
 }
 
-table.table td .create {
+table.table td .create-btn {
     display: none;
 }
 

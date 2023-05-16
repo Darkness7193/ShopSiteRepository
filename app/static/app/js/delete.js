@@ -7,7 +7,7 @@ function ajaxDelete(tr) {
 }
 
 $(document).ready(function() {
-    $(document).on("click", ".delete", function(){
+    $(document).on("click", ".delete-btn", function(){
         let tr = $(this).parents("tr");
         $().click(ajaxDelete(tr));
 
