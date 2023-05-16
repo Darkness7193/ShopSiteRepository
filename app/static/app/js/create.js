@@ -31,8 +31,6 @@ $(document).ready(function(){
 			tr.find(".error").first().focus();
 		}
 		else {
-
-
 			inputs.each(function(){
 				$(this).parent("td").html($(this).val());
 			});
