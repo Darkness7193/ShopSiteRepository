@@ -3,7 +3,7 @@
 
 $(document).ready(function() {
     $(document).on("click", ".update-btn", function () {
-        state = "update";
+        create_mode = "update";
         let tr = $(this).parents("tr");
 
         let headers = $('th');

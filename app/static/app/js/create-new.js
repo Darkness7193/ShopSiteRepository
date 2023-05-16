@@ -13,7 +13,7 @@ let input_tr = `
 
 $(document).ready(function(){
     $(document).on("click", ".create-new", function(){
-		state = "create";
+		create_mode = "create";
     	$("table").append(`<tr> ${input_tr} </tr>`);
 
 		$("table tbody tr:last-child").find(".create-btn, .update-btn").toggle();

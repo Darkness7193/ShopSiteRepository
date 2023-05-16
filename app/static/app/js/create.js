@@ -47,9 +47,9 @@ $(document).ready(function(){
 		if (is_validated(inputs)) {
 			tr.find(".error").first().focus();
 		} else {
-			if (state === "create") {
+			if (create_mode === "create") {
 				$().click(ajaxCreate());
-			} else if (state === "update") {
+			} else if (create_mode=== "update") {
 				$().click(ajaxUpdate(tr));
 			}
 
