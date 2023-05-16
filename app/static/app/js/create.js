@@ -1,10 +1,9 @@
 function ajaxCreate() {
-
 	$.ajax({
 		method: 'post',
 		url: create_product_view,
 		data: {
-			'name': $('#name-input')[0].value,
+			'name': $('#name-input')[0].value+'aC,',
 			'price': $('#price-input')[0].value,
 			'description': $('#description-input')[0].value,
 			'count': $('#count-input')[0].value,
@@ -42,10 +41,6 @@ $(document).ready(function(){
 
 			tr.find(".create-btn, .update-btn").toggle();
 			$(".create-new").removeAttr("disabled");
-
-
-
         }
-
     });
 });

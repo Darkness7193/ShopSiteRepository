@@ -2,6 +2,7 @@ from django.shortcuts import render
 from app.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from decimal import Decimal
 
 
 def index(request):
@@ -40,8 +41,8 @@ def delete_product(request):
 @csrf_exempt
 def create_product(request):
     product = Product(
-        name=request.POST.get('name'),
-        price=request.POST.get('price'),
+        name=request.POST.get('name')+'vC,',
+        price=Decimal(request.POST.get('price')),
         description=request.POST.get('description'),
         count=request.POST.get('count'),
     )
@@ -58,8 +59,8 @@ def update_product(request):
 
         print_post(request.POST.get)
 
-        product.name = request.POST.get('name')
-        product.price = request.POST.get('price')
+        product.name = request.POST.get('name') + 'vU,'
+        product.price = Decimal(request.POST.get('price'))
         product.description = request.POST.get('description')
         product.count = request.POST.get('count')
 
