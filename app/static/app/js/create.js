@@ -32,8 +32,7 @@ $(document).ready(function(){
 
 		if (is_validated(inputs)) {
 			tr.find(".error").first().focus();
-		}
-		else {
+		} else {
 			//$().click(ajaxCreate());
 			console.log($('#name-input'));
 
