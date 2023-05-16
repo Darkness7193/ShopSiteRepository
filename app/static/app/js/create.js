@@ -27,8 +27,6 @@ function is_validated(inputs) {
 
 $(document).ready(function(){
     $(document).on("click", ".create-btn", function(){
-		console.log('create');
-
 		let tr = $(this).parents("tr");
 		let inputs = tr.find('input[type="text"]');
 
