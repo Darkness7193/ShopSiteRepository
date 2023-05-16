@@ -38,7 +38,6 @@ function is_validated(inputs) {
 	return empty
 }
 
-
 $(document).ready(function(){
     $(document).on("click", ".create-btn", function(){
 		let tr = $(this).parents("tr");

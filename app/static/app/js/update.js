@@ -1,6 +1,3 @@
-
-
-
 $(document).ready(function() {
     $(document).on("click", ".update-btn", function () {
         create_mode = "update";

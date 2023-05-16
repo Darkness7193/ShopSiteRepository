@@ -10,7 +10,6 @@ let input_tr = `
 	</td>
 `;
 
-
 $(document).ready(function(){
     $(document).on("click", ".create-new", function(){
 		create_mode = "create";
