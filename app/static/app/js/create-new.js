@@ -15,8 +15,7 @@ $(document).ready(function(){
     $(document).on("click", ".create-new", function(){
     	$("table").append(`<tr> ${input_tr} </tr>`);
 
-		let index = $("table tbody tr:last-child").index();
-		$("table tbody tr").eq(index).find(".create-btn, .update-btn").toggle();
+		$("table tbody tr:last-child").find(".create-btn, .update-btn").toggle();
 
 		$(this).attr("disabled", "disabled");
     });
