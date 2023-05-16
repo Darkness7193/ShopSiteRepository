@@ -11,6 +11,20 @@ function ajaxCreate() {
 	});
 }
 
+function ajaxUpdate(tr) {
+    $.ajax({
+        method: 'post',
+        url: update_product_view,
+        data: {
+            'update_id': tr.attr("id"),
+			'name': $('#name-input')[0].value,
+			'price': $('#price-input')[0].value,
+			'description': $('#description-input')[0].value,
+			'count': $('#count-input')[0].value,
+        },
+    });
+}
+
 function is_validated(inputs) {
 	let empty = false;
 	inputs.each(function(){
@@ -33,8 +47,11 @@ $(document).ready(function(){
 		if (is_validated(inputs)) {
 			tr.find(".error").first().focus();
 		} else {
-			//$().click(ajaxCreate());
-			console.log($('#name-input'));
+			if (state === "create") {
+				$().click(ajaxCreate());
+			} else if (state === "update") {
+				$().click(ajaxUpdate(tr));
+			}
 
 			inputs.each(function(){
 				$(this).parent("td").html($(this).val());
