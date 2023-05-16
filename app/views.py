@@ -28,18 +28,17 @@ def print_post(get):
 
 @csrf_exempt
 def delete_product(request):
-    print('delete_product')
     delete_id = request.POST.get('delete_id')
-    Product.objects.filter(id=int(delete_id)).delete()
+
+    if delete_id:
+        print('delete_product', delete_id)
+        Product.objects.filter(id=int(delete_id)).delete()
 
     return JsonResponse({})
 
 
 @csrf_exempt
 def create_product(request):
-    print('create_product')
-    print_post(request.POST.get)
-
     product = Product(
         name=request.POST.get('name'),
         price=int(request.POST.get('price')),
@@ -52,16 +51,18 @@ def create_product(request):
 
 @csrf_exempt
 def update_product(request):
-    update_id = int(request.POST.get('update_id'))
-    product = Product.objects.get(id=update_id)
+    update_id = request.POST.get('update_id')
 
-    print('update_product')
-    print_post(request.POST.get)
+    if update_id:
+        product = Product.objects.get(int(d=update_id))
 
-    product.name = request.POST.get('name')
-    product.price = int(request.POST.get('price'))
-    product.description = int(request.POST.get('description'))
-    product.count = int(request.POST.get('count'))
+        print_post(request.POST.get)
 
-    product.save()
+        product.name = request.POST.get('name')
+        product.price = int(request.POST.get('price'))
+        product.description = int(request.POST.get('description'))
+        product.count = int(request.POST.get('count'))
+
+        product.save()
+
     return JsonResponse({})

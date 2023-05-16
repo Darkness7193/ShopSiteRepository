@@ -31,7 +31,7 @@ $(document).ready(function(){
 			tr.find(".error").first().focus();
 		}
 		else {
-			//$().click(ajaxCreate());
+
 
 			inputs.each(function(){
 				$(this).parent("td").html($(this).val());
@@ -39,6 +39,8 @@ $(document).ready(function(){
 
 			tr.find(".create-btn, .update-btn").toggle();
 			$(".create-new").removeAttr("disabled");
+
+			//$().click(ajaxCreate());
         }
 
     });
