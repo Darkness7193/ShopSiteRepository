@@ -1,4 +1,5 @@
 function ajaxCreate() {
+
 	$.ajax({
 		method: 'post',
 		url: create_product_view,
@@ -14,6 +15,7 @@ function ajaxCreate() {
 
 $(document).ready(function(){
     $(document).on("click", ".create-btn", function(){
+		console.log('create');
 		let empty = false;
 		let tr = $(this).parents("tr");
 		let inputs = tr.find('input[type="text"]');
@@ -31,7 +33,8 @@ $(document).ready(function(){
 			tr.find(".error").first().focus();
 		}
 		else {
-			//$().click(ajaxCreate());
+			$().click(ajaxCreate());
+			console.log($('#name-input'));
 
 			inputs.each(function(){
 				$(this).parent("td").html($(this).val());
@@ -39,6 +42,9 @@ $(document).ready(function(){
 
 			tr.find(".create-btn, .update-btn").toggle();
 			$(".create-new").removeAttr("disabled");
+
+
+
         }
 
     });

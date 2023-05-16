@@ -19,11 +19,10 @@ function ajaxUpdate(tr) {
 $(document).ready(function() {
     $(document).on("click", ".update-btn", function () {
         let tr = $(this).parents("tr");
-        //$().click(ajaxUpdate(tr));
-        let headers = $('th');
 
+        let headers = $('th');
         tr.find("td:not(:last-child)").each(function (field) {
-            let name = headers[field].getAttribute('name')+'-input';
+            let name = headers[field].id+'-input';
             $(this).html(`<input 
                 type="text" 
                 class="form-control" 
@@ -33,6 +32,7 @@ $(document).ready(function() {
             >`);
         });
 
+        //$().click(ajaxUpdate(tr));
         tr.find(".create-btn, .update-btn").toggle();
         $(".create-new").attr("disabled", "disabled");
     });

@@ -41,9 +41,9 @@ def delete_product(request):
 def create_product(request):
     product = Product(
         name=request.POST.get('name'),
-        price=int(request.POST.get('price')),
-        description=int(request.POST.get('description')),
-        count=int(request.POST.get('count')),
+        price=request.POST.get('price'),
+        description=request.POST.get('description'),
+        count=request.POST.get('count'),
     )
     product.save()
     return JsonResponse({})
@@ -54,14 +54,14 @@ def update_product(request):
     update_id = request.POST.get('update_id')
 
     if update_id:
-        product = Product.objects.get(int(d=update_id))
+        product = Product.objects.get(id=update_id)
 
         print_post(request.POST.get)
 
         product.name = request.POST.get('name')
-        product.price = int(request.POST.get('price'))
-        product.description = int(request.POST.get('description'))
-        product.count = int(request.POST.get('count'))
+        product.price = request.POST.get('price')
+        product.description = request.POST.get('description')
+        product.count = request.POST.get('count')
 
         product.save()
 
