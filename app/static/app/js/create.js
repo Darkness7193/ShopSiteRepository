@@ -3,10 +3,10 @@ function ajaxCreate() {
 		method: 'post',
 		url: create_product_view,
 		data: {
-			'name': $('name')[0].value,
-			'price': $('price')[0].value,
-			'decription': $('description')[0].value,
-			'count': $('count')[0].value,
+			'name': $('#name-input')[0].value,
+			'price': $('#price-input')[0].value,
+			'description': $('#description-input')[0].value,
+			'count': $('#count-input')[0].value,
 		},
 	});
 }
@@ -16,9 +16,9 @@ $(document).ready(function(){
     $(document).on("click", ".create-btn", function(){
 		let empty = false;
 		let tr = $(this).parents("tr");
-		let input = tr.find('input[type="text"]');
+		let inputs = tr.find('input[type="text"]');
 
-        input.each(function(){
+        inputs.each(function(){
 			if(!$(this).val()){
 				$(this).addClass("error");
 				empty = true;
@@ -26,17 +26,20 @@ $(document).ready(function(){
                 $(this).removeClass("error");
             }
 		});
-		tr.find(".error").first().focus();
 
-		if(!empty){
+		if (empty) {
+			tr.find(".error").first().focus();
+		}
+		else {
+			//$().click(ajaxCreate());
 
-			input.each(function(){
+			inputs.each(function(){
 				$(this).parent("td").html($(this).val());
 			});
 
 			tr.find(".create-btn, .update-btn").toggle();
 			$(".create-new").removeAttr("disabled");
-
         }
+
     });
 });
