@@ -1,13 +1,10 @@
-
-
-
 function ajaxUpdate(tr) {
     $.ajax({
         method: 'post',
         url: update_product_view,
         data: {
             'update_id': tr.attr("id"),
-			'name': $('#name-input')[0].value+'aU,',
+			'name': $('#name-input')[0].value,
 			'price': $('#price-input')[0].value,
 			'description': $('#description-input')[0].value,
 			'count': $('#count-input')[0].value,
@@ -32,7 +29,7 @@ $(document).ready(function() {
             >`);
         });
 
-        $().click(ajaxUpdate(tr));
+        //$().click(ajaxUpdate(tr));
         tr.find(".create-btn, .update-btn").toggle();
         $(".create-new").attr("disabled", "disabled");
     });

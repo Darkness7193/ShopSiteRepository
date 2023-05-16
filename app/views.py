@@ -41,7 +41,7 @@ def delete_product(request):
 @csrf_exempt
 def create_product(request):
     product = Product(
-        name=request.POST.get('name')+'vC,',
+        name=request.POST.get('name'),
         price=Decimal(request.POST.get('price')),
         description=request.POST.get('description'),
         count=request.POST.get('count'),
@@ -59,7 +59,7 @@ def update_product(request):
 
         print_post(request.POST.get)
 
-        product.name = request.POST.get('name') + 'vU,'
+        product.name = request.POST.get('name')
         product.price = Decimal(request.POST.get('price'))
         product.description = request.POST.get('description')
         product.count = request.POST.get('count')

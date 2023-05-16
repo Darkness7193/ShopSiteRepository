@@ -3,7 +3,7 @@ function ajaxCreate() {
 		method: 'post',
 		url: create_product_view,
 		data: {
-			'name': $('#name-input')[0].value+'aC,',
+			'name': $('#name-input')[0].value,
 			'price': $('#price-input')[0].value,
 			'description': $('#description-input')[0].value,
 			'count': $('#count-input')[0].value,
@@ -11,28 +11,32 @@ function ajaxCreate() {
 	});
 }
 
+function is_validated(inputs) {
+	let empty = false;
+	inputs.each(function(){
+		if(!$(this).val()){
+			$(this).addClass("error");
+			empty = true;
+		} else{
+		    $(this).removeClass("error");
+		}
+	});
+	return empty
+}
+
 
 $(document).ready(function(){
     $(document).on("click", ".create-btn", function(){
 		console.log('create');
-		let empty = false;
+
 		let tr = $(this).parents("tr");
 		let inputs = tr.find('input[type="text"]');
 
-        inputs.each(function(){
-			if(!$(this).val()){
-				$(this).addClass("error");
-				empty = true;
-			} else{
-                $(this).removeClass("error");
-            }
-		});
-
-		if (empty) {
+		if (is_validated(inputs)) {
 			tr.find(".error").first().focus();
 		}
 		else {
-			$().click(ajaxCreate());
+			//$().click(ajaxCreate());
 			console.log($('#name-input'));
 
 			inputs.each(function(){
