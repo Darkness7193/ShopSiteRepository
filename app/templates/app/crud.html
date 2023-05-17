@@ -37,49 +37,45 @@
 
 <body>
 {% include 'ShopSite/header.html' %}
-<div class="container-lg">
-    <div class="table-responsive">
-        <div class="table-wrapper">
-            <div style="display:flex; padding-bottom: 7px;">
-                <h3 style="flex-grow:100;"><b> Товары </b></h3>
-                    <div class="h-w-fit-content"></div>
-                    <form class="search-form" method="post">
-                        {% csrf_token %}
-                        <div class="arrange--V">
-                            <div class="helper"></div>
-                            <input type="text" placeholder="Фильтр" name="products_search">
-                        </div>
-                    </form>
-                <button type="button" style="background: var(--neutral-color);" class="btn btn-info create-new"><i class="fa fa-plus"></i> Добавить </button>
-            </div>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th id="name">Наименование</th>
-                        <th id="price">Цена</th>
-                        <th id="description">Описание</th>
-                        <th id="count">Количество</th>
-                        <th></th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for product in products %}
-                        <tr id="{{ product.id }}">
-                            <td>{{product.name}}</td>
-                            <td>{{product.price}}</td>
-                            <td>{{product.description}}</td>
-                            <td>{{product.count}}</td>
-                            <td>
-                                <a class="create-btn" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
-                                <a class="update-btn" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
-                                <a class="delete-btn" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
-                            </td>
-                        </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-        </div>
+<div class="container-lg table-responsive table-wrapper">
+    <div style="display:flex; padding-bottom: 7px;">
+        <h3 style="flex-grow:100;"><b> Товары </b></h3>
+            <div class="h-w-fit-content"></div>
+            <form class="search-form" method="post">
+                {% csrf_token %}
+                <div class="arrange--V">
+                    <div class="helper"></div>
+                    <input type="text" placeholder="Фильтр" name="products_search">
+                </div>
+            </form>
+        <button type="button" style="background: var(--neutral-color);" class="btn btn-info create-new"><i class="fa fa-plus"></i> Добавить </button>
     </div>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th id="name">Наименование</th>
+                <th id="price">Цена</th>
+                <th id="description">Описание</th>
+                <th id="count">Количество</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr id="{{ product.id }}">
+                    <td>{{product.name}}</td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.description}}</td>
+                    <td>{{product.count}}</td>
+                    <td>
+                        <a class="create-btn" data-toggle="tooltip"><i class="material-icons">&#xE03B;</i></a>
+                        <a class="update-btn" data-toggle="tooltip"><i class="material-icons">&#xE254;</i></a>
+                        <a class="delete-btn" data-toggle="tooltip"><i class="material-icons">&#xE872;</i></a>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
 </div>
 </body>
 </html>
