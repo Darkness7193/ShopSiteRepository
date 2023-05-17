@@ -15,7 +15,7 @@
     <ul class="messages">
         {% for message in messages %}
         <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-            <p><span style="background: #de4f54; padding:3px; border: 1px solid black; border-radius: 4px;">
+            <p><span  class="error-box">
                 {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
                 {{ message }}
             </span></p>

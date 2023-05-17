@@ -2,12 +2,13 @@ from django.contrib.auth import authenticate, login, logout
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.db.models import Q
 from django.http import HttpResponseRedirect
 from django.urls import reverse
 
 from .models import Profile
-from .validations import sign_in_validation
+from .validations import (sign_in_validation,
+                          password_change_validation,
+                          username_change_validation)
 
 
 def log_in(request):
@@ -64,15 +65,8 @@ def password_change(request):
         password_conf = form.get('password_conf')
         user = request.user
 
-        errors = []
-        if password != password_conf:
-            errors.append('Введенные пароли не совпадают')
-        if not user.check_password(old_password):
-            errors.append('Введенный пароль не совпадает с паролем аккаунта')
-
-        if errors:
-            for error_content in errors:
-                messages.error(request, error_content)
+        request, have_errors = password_change_validation(request, old_password, password, password_conf)
+        if have_errors:
             return HttpResponseRedirect(request.path_info)
 
         user.set_password(password)
@@ -90,17 +84,8 @@ def username_change(request):
         new_username = form.get('username')
         user = request.user
 
-        is_login_exist = User.objects.filter(~Q(id=user.id), username=new_username) == []
-
-        errors = []
-        if is_login_exist:
-            errors.append('Введенный логин уже используется')
-        if not user.check_password(password):
-            errors.append('Введенный пароль не совпадает с паролем аккаунта')
-
-        if errors:
-            for error_content in errors:
-                messages.error(request, error_content)
+        request, have_errors = username_change_validation(request, new_username, password)
+        if have_errors:
             return HttpResponseRedirect(request.path_info)
 
         user.username = new_username
