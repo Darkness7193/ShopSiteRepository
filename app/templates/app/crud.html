@@ -40,7 +40,7 @@
 <div class="container-lg">
     <div class="table-responsive">
         <div class="table-wrapper">
-            <div style="display:flex;">
+            <div style="display:flex; padding-bottom: 7px;">
                 <h3 style="flex-grow:100;"><b> Товары </b></h3>
                 <div class="h-w-fit-content"></div>
                 <button type="button" style="background: var(--neutral-color);" class="btn btn-info create-new"><i class="fa fa-plus"></i> Добавить </button>
@@ -49,7 +49,7 @@
                 <thead>
                     <tr>
                         <th id="name">Наименование</th>
-                        <th id="price">Цена в ₽</th>
+                        <th id="price">Цена</th>
                         <th id="description">Описание</th>
                         <th id="count">Количество</th>
                         <th></th>
@@ -59,7 +59,7 @@
                     {% for product in products %}
                         <tr id="{{ product.id }}">
                             <td>{{product.name}}</td>
-                            <td>{{product.price}}</td>
+                            <td>{{product.price}}₽</td>
                             <td>{{product.description}}</td>
                             <td>{{product.count}}</td>
                             <td>

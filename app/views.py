@@ -43,7 +43,7 @@ def create_product(request):
     print('create_product')
     product = Product(
         name=request.POST.get('name'),
-        price=Decimal(request.POST.get('price')),
+        price=Decimal(request.POST.get('price').replate('₽', '')),
         description=request.POST.get('description'),
         count=request.POST.get('count'),
     )
@@ -62,7 +62,7 @@ def update_product(request):
         print_post(request.POST.get)
 
         product.name = request.POST.get('name')
-        product.price = Decimal(request.POST.get('price'))
+        product.price = Decimal(request.POST.get('price').replate('₽', ''))
         product.description = request.POST.get('description')
         product.count = request.POST.get('count')
 
