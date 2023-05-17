@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.urls import reverse
 from app.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -6,9 +7,7 @@ from decimal import Decimal
 
 
 def index(request):
-    context = {
-    }
-    return render(request, 'app/index.html', context)
+    return redirect(reverse('crud'))
 
 
 def crud(request):

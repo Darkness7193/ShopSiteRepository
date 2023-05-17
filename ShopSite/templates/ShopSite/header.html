@@ -14,6 +14,14 @@
     <div class="header">
         <div style="display:flex;">
             <div style="flex-grow:100;"></div>
+            <a href="http://127.0.0.1:8000/admin">
+                <button><b> Админка </b></button>
+            </a>
+
+            <a href="{% url 'crud' %}">
+                <button><b> Действия с товарами </b></button>
+            </a>
+            <div style="flex-grow:100;"></div>
             {% if user.is_authenticated %}
 
                 {% include 'ProfilesApp/profile-menu.html' %}
