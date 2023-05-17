@@ -98,7 +98,6 @@ def username_change(request):
         user = request.user
 
         is_login_exist = User.objects.filter(~Q(id=user.id), username=new_username) == []
-        print(is_login_exist)
 
         errors = []
         if is_login_exist:
