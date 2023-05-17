@@ -16,15 +16,15 @@
             <div style="flex-grow:100;"></div>
             {% if user.is_authenticated %}
 
-                {% include 'ProfilesApp/profileMenu.html' %}
+                {% include 'ProfilesApp/profile-menu.html' %}
 
             {% else %}
 
-                <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'logIn' %}">
+                <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'log-in' %}">
                     <button> Войти </button>
                 </a>
 
-                <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'signIn' %}">
+                <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'sign-in' %}">
                     <button> Зарегистрироваться </button>
                 </a>
 

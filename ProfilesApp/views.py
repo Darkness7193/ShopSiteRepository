@@ -9,7 +9,7 @@ from .models import Profile
 from ShopSite.MyShortcuts import get_or_none
 
 
-def logIn(request):
+def log_in(request):
     if request.method == 'POST':
         form = request.POST
         username = form.get('username')
@@ -24,10 +24,10 @@ def logIn(request):
             login(request, user)
             return redirect(reverse('index'))
 
-    return render(request, 'ProfilesApp/logIn.html')
+    return render(request, 'ProfilesApp/log-in.html')
 
 
-def signIn(request):
+def sign_in(request):
     if request.method == 'POST':
         form = request.POST
         username = form.get('username')
@@ -54,9 +54,13 @@ def signIn(request):
             profile.save()
             return redirect(reverse('index'))
 
-    return render(request, 'ProfilesApp/signIn.html')
+    return render(request, 'ProfilesApp/sign-in.html')
 
 
-def logOut(request):
+def log_out(request):
     logout(request)
     return redirect(reverse('index'))
+
+
+def password_change(request):
+    render(request, 'ProfilesApp/password-change.html')
