@@ -15,12 +15,11 @@
         <div style="display:flex;">
             <div style="flex-grow:100;"></div>
             {% if user.is_authenticated %}
-                <b style="padding-right:1%;"> {{ user }} </b>
 
-                <a class="a-btn a__header " style="padding-right:1%;" href="{% url 'logOut' %}">
-                    <button style="color: red"> <b> Выйти </b> </button>
-                </a>
+                {% include 'ProfilesApp/profileMenu.html' %}
+
             {% else %}
+
                 <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'logIn' %}">
                     <button> Войти </button>
                 </a>
@@ -28,6 +27,7 @@
                 <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'signIn' %}">
                     <button> Зарегистрироваться </button>
                 </a>
+
             {% endif %}
         </div>
 
