@@ -22,7 +22,7 @@ def logIn(request):
         else:
             logout(request)
             login(request, user)
-            return redirect(reverse('matches'))
+            return redirect(reverse('index'))
 
     return render(request, 'ProfilesApp/logIn.html')
 
@@ -33,7 +33,6 @@ def signIn(request):
         username = form.get('username')
         password = form.get('password')
         password_conf = form.get('password_conf')
-        requisites = form.get('requisites')
 
         haveLogin = get_or_none(User, username=username)
 
@@ -51,9 +50,9 @@ def signIn(request):
             user = User(username=username)
             user.set_password(password)
             user.save()
-            profile = Profile(user=user, requisites=requisites)
+            profile = Profile(user=user)
             profile.save()
-            return redirect(reverse('matches'))
+            return redirect(reverse('index'))
 
     return render(request, 'ProfilesApp/signIn.html')
 
