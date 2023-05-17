@@ -12,7 +12,6 @@ def index(request):
 
 
 def crud(request):
-
     if request.method == 'POST':
         search_query = request.POST.get('products_search')
         searched_products = []
