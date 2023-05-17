@@ -12,19 +12,18 @@ def index(request):
 
 
 def crud(request):
-    context = {
-        'products': Product.objects.all()
-    }
+
+    if request.method == 'POST':
+        search_query = request.POST.get('products_search')
+        searched_products = []
+        for product in Product.objects.all():
+            if search_query in product.__str__():
+                searched_products.append(product)
+        context = {'products': searched_products}
+    else:
+        context = {'products': Product.objects.all()}
+
     return render(request, 'app/crud.html', context)
-
-
-def print_post(get):
-    print([
-        get('name'),
-        get('price'),
-        get('description'),
-        get('count')
-    ])
 
 
 @csrf_exempt
@@ -32,7 +31,6 @@ def delete_product(request):
     delete_id = request.POST.get('delete_id')
 
     if delete_id:
-        print('delete_product', delete_id)
         Product.objects.filter(id=int(delete_id)).delete()
 
     return JsonResponse({})
@@ -40,7 +38,6 @@ def delete_product(request):
 
 @csrf_exempt
 def create_product(request):
-    print('create_product')
     product = Product(
         name=request.POST.get('name'),
         price=Decimal(request.POST.get('price')),
@@ -54,12 +51,9 @@ def create_product(request):
 @csrf_exempt
 def update_product(request):
     update_id = request.POST.get('update_id')
-    print('update_product', update_id)
 
     if update_id:
         product = Product.objects.get(id=update_id)
-
-        print_post(request.POST.get)
 
         product.name = request.POST.get('name')
         product.price = Decimal(request.POST.get('price'))

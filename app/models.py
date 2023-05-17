@@ -14,10 +14,7 @@ class Product(Model):
     count = PositiveIntegerField()
 
     def __str__(self):
-        return f'{self.name} {self.price}'
-
-    def all_data(self):
-        return f'{self.name} {self.price} {self.description} {self.count} {self.image}'
+        return f'{self.name} {self.price} {self.description} {self.count}'
 
     class Meta:
         db_table = 'Product'

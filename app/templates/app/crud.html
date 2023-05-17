@@ -42,7 +42,14 @@
         <div class="table-wrapper">
             <div style="display:flex; padding-bottom: 7px;">
                 <h3 style="flex-grow:100;"><b> Товары </b></h3>
-                <div class="h-w-fit-content"></div>
+                    <div class="h-w-fit-content"></div>
+                    <form class="search-form" method="post">
+                        {% csrf_token %}
+                        <div class="arrange--V">
+                            <div class="helper"></div>
+                            <input type="text" placeholder="Фильтр товаров" name="products_search">
+                        </div>
+                    </form>
                 <button type="button" style="background: var(--neutral-color);" class="btn btn-info create-new"><i class="fa fa-plus"></i> Добавить </button>
             </div>
             <table class="table table-bordered">
