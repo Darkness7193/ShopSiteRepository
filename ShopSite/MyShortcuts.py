@@ -3,9 +3,9 @@ from django.core.exceptions import ObjectDoesNotExist
 
 class MyManager(Manager):
 
-    def get_or_none(self, **kwargs):
+    def get_or_none(self, *args, **kwargs):
         try:
-            return self.get(**kwargs)
+            return self.get(*args, **kwargs)
         except ObjectDoesNotExist:
             return None
 

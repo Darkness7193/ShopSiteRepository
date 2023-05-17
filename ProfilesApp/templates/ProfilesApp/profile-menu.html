@@ -15,6 +15,9 @@
     <div class="dropdown">
         <button class="dropbtn">{{ user }}</button>
         <div class="dropdown-content" style="right:0;">
+            <a href="{% url 'username-change' %}">
+                <p> Сменить логин </p>
+            </a>
             <a href="{% url 'password-change' %}">
                 <p> Сменить пароль </p>
             </a>
