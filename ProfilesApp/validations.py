@@ -24,8 +24,10 @@ def password_change_validation(request, old_password, password, password_conf):
 
     if password != password_conf:
         messages.error(request, 'Введенные пароли не совпадают')
+        error = True
     if not user.check_password(old_password):
         messages.error(request, 'Введенный пароль не совпадает с паролем аккаунта')
+        error = True
 
     return request, error
 
