@@ -60,4 +60,4 @@ def signIn(request):
 
 def logOut(request):
     logout(request)
-    return redirect(reverse('matches'))
+    return redirect(reverse('index'))

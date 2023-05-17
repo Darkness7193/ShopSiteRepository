@@ -1,5 +1,8 @@
+@import url("/ShopSite/static/ShopSite/css/global.css");
+
+
 .sign-in-form {
-    background:#96D4D4;
+    background:var(--neutral-color);
     padding: 1px;
     border-radius: 5px;
     width: fit-content;

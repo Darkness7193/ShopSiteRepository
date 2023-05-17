@@ -1,8 +1,8 @@
-@import url("colors.css");
+@import url("/ShopSite/static/ShopSite/css/global.css");
 
 
 .header {
-    background: var(--main-color);
+    background: var(--neutral-color);
     padding-bottom:6px;
     padding-top:6px;
 }
