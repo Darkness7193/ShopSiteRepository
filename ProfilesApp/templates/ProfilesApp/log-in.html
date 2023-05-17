@@ -10,6 +10,19 @@
 </head>
 <body>
 
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+            <p><span style="background: #de4f54; padding:3px; border: 1px solid black; border-radius: 4px;">
+                {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
+                {{ message }}
+            </span></p>
+        </li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
     {% include 'ShopSite/header.html' %}
     <div class="center">
 
@@ -22,29 +35,16 @@
                 <div class="helper"></div>
 
                 <label for="username"><strong>Логин</strong></label>
-                <input type="text" placeholder="Введите логин" name="username" id="username" required>
+                <input type="text" placeholder="Логин" name="username" id="username" required>
 
                 <label for="password"><strong>Пароль</strong></label>
-                <input type="password" placeholder="Введите пароль" name="password" id="password" required>
+                <input type="password" placeholder="Пароль" name="password" id="password" required>
 
                 <div style="height:15px"></div>
                 <button type="submit">Подтвердить</button>
 
             </div>
         </form>
-
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                <p><span style="background: #de4f54; padding:3px; border: 1px solid black; border-radius: 4px;">
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
-                    {{ message }}
-                </span></p>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
 
     </div>
 </body>

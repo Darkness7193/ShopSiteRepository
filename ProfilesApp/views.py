@@ -23,8 +23,8 @@ def log_in(request):
             logout(request)
             login(request, user)
             return redirect(reverse('index'))
-
-    return render(request, 'ProfilesApp/log-in.html')
+    else:
+        return render(request, 'ProfilesApp/log-in.html')
 
 
 def sign_in(request):
@@ -34,12 +34,12 @@ def sign_in(request):
         password = form.get('password')
         password_conf = form.get('password_conf')
 
-        haveLogin = get_or_none(User, username=username)
+        is_login_exist = get_or_none(User, username=username)
 
         errors = []
         if password != password_conf:
             errors.append('Введенные пароли не совпадают')
-        if haveLogin:
+        if is_login_exist:
             errors.append('Введенный логин уже используется')
 
         if errors:
@@ -53,8 +53,8 @@ def sign_in(request):
             profile = Profile(user=user)
             profile.save()
             return redirect(reverse('index'))
-
-    return render(request, 'ProfilesApp/sign-in.html')
+    else:
+        return render(request, 'ProfilesApp/sign-in.html')
 
 
 def log_out(request):
@@ -63,4 +63,27 @@ def log_out(request):
 
 
 def password_change(request):
-    render(request, 'ProfilesApp/password-change.html')
+    if request.method == 'POST':
+        form = request.POST
+        old_password = form.get('old_password')
+        password = form.get('password')
+        password_conf = form.get('password_conf')
+        user = request.user
+
+        errors = []
+        if password != password_conf:
+            errors.append('Введенные пароли не совпадают')
+        if not user.check_password(old_password):
+            errors.append('Введенный пароль не совпадает с старым паролем')
+
+        if errors:
+            for error_content in errors:
+                messages.error(request, error_content)
+            return HttpResponseRedirect(request.path_info)
+        else:
+            user.set_password(password)
+            user.save()
+            login(request, user)
+            return redirect(reverse('index'))
+    else:
+        return render(request, 'ProfilesApp/password-change.html')
