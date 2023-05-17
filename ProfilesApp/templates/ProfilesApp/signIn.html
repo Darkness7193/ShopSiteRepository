@@ -12,6 +12,19 @@
 
     {% include 'ShopSite/header.html' %}
 
+    {% if messages %}
+        <ul class="messages">
+            {% for message in messages %}
+            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
+                <p><span style="background: #fc1419; padding:3px; border: 0px solid black; border-radius: 4px;">
+                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
+                    {{ message }}
+                </span></p>
+            </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
     <div class="center">
 
         <h2 style="text-align: center;"> Регистрация </h2>
@@ -36,19 +49,6 @@
 
             </div>
         </form>
-
-        {% if messages %}
-        <ul class="messages">
-            {% for message in messages %}
-            <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>
-                <p><span style="background: #de4f54; padding:3px; border: 1px solid black; border-radius: 4px;">
-                    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}{% endif %}
-                    {{ message }}
-                </span></p>
-            </li>
-            {% endfor %}
-        </ul>
-        {% endif %}
 
     </div>
 </body>
