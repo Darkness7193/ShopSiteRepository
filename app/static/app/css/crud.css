@@ -4,7 +4,6 @@
 .table {
 	width: 100%;
 	margin-bottom: 20px;
-	border: 1px solid #dddddd;
 	border-collapse: collapse;
     table-layout: fixed;
 }
@@ -19,7 +18,13 @@
 	padding: 5px;
 }
 
+.table td:last-child {
+    border: 0;
+}
+
 table.table th:last-child {
+    border: 0;
+    background: transparent;
     width: 85px;
 }
 
@@ -99,7 +104,9 @@ table.table td .create-btn {
     outline: none;
 }
 
-.table-title .create-new {
-    float: right;
-    height: 30px;
+.create-new {
+    border-radius: 4px;
+    width: 60px;
+    height: 24px;
+    margin-right: 16px;
 }
