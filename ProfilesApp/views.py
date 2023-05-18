@@ -4,6 +4,8 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
+from ShopSite.MyShortcuts import get_or_none
+from ProfilesApp.models import Profile
 
 from .models import Profile
 from .validations import (sign_in_validation,
@@ -95,3 +97,22 @@ def username_change(request):
         return redirect(reverse('index'))
     else:
         return render(request, 'ProfilesApp/username-change.html')
+
+
+def user_status_change(request):
+    if request.method == 'POST':
+        form = request.POST
+        username = form.get('username')
+        status = form.get('user-status-select')
+        user = get_or_none(User, username=username)
+
+        if user == None:
+            messages.error(request, 'Логин не существует')
+            return HttpResponseRedirect(request.path_info)
+
+        profile = Profile.objects.get(user__username=username)
+        profile.status = status
+        profile.save()
+        return redirect(reverse('index'))
+    else:
+        return render(request, 'ProfilesApp/user-status-change.html')

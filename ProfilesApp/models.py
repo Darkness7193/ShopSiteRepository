@@ -4,15 +4,21 @@ from django.db.models import Model, OneToOneField, CASCADE, FloatField, CharFiel
 from ShopSite.MyShortcuts import MyManager
 
 
-
 class Profile(Model):
     objects = MyManager()
 
     user = OneToOneField(User, on_delete=CASCADE)
-    requisites = CharField(max_length=20)
-
+    status = CharField(
+        max_length=30,
+        default='Покупатель',
+        choices=(
+            ('Пользователь', 'Пользователь'),
+            ('Продавец', 'Продавец'),
+            ('Администратор', 'Администратор')
+        )
+    )
     def __str__(self):
-        return self.requisites
+        return self.user.username
 
     class Meta:
         db_table = 'Profile'

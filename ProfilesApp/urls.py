@@ -1,5 +1,5 @@
 from django.urls import path
-from ProfilesApp.views import log_in, sign_in, log_out, password_change, username_change
+from ProfilesApp.views import log_in, sign_in, log_out, password_change, username_change, user_status_change
 
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('log-out/', log_out, name='log-out'),
     path('password-change/', password_change, name='password-change'),
     path('username-change/', username_change, name='username-change'),
+    path('user-status-change/', user_status_change, name='user-status-change'),
 ]
