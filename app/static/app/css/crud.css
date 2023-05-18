@@ -7,14 +7,6 @@ body {
     font-family: 'Open Sans', sans-serif;
 }
 
-.table-wrapper {
-    width: 700px;
-    margin: 30px auto;
-    background: #fff;
-    padding: 20px;
-    box-shadow: 0 1px 1px rgba(0,0,0,.05);
-}
-
 .table-title h2 {
     margin: 6px 0 0;
     font-size: 22px;
@@ -42,6 +34,20 @@ table.table th:last-child {
     width: 100px;
 }
 
+table.table td i {
+    font-size: 19px;
+}
+
+
+
+.table-wrapper {
+    width: 700px;
+    margin: 30px auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
 table.table td a {
     cursor: pointer;
     display: inline-block;
@@ -59,10 +65,6 @@ table.table td a.update-btn {
 
 table.table td a.delete-btn {
     color: #E34724;
-}
-
-table.table td i {
-    font-size: 19px;
 }
 
 table.table td a.create-btn i {
