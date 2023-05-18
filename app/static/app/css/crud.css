@@ -87,14 +87,19 @@ table.table td .create-btn {
     margin-right: 1%;
 }
 
+.search-input {
+    font-size: 15px;
+    height: 36px;
+    background-color: white;
+    background-image: url('../images/searchicon.png');
+    background-position: 10px 10px;
+    background-repeat: no-repeat;
+    padding-left: 40px;
+    border: 0px;
+    outline: none;
+}
+
 .table-title .create-new {
     float: right;
     height: 30px;
-    font-weight: bold;
-    font-size: 12px;
-    text-shadow: none;
-    min-width: 100px;
-    border-radius: 50px;
-    line-height: 13px;
-    width: 15%;
 }
