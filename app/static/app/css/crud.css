@@ -50,14 +50,17 @@ table.table td a {
 
 table.table td a.create-btn {
     color: #27C46B;
+    border-radius: 4px;
 }
 
 table.table td a.update-btn {
     color: #FFC107;
+    border-radius: 4px;
 }
 
 table.table td a.delete-btn {
     color: #E34724;
+    border-radius: 4px;
 }
 
 table.table td a.create-btn i {
@@ -106,7 +109,7 @@ table.table td .create-btn {
 
 .create-new {
     border-radius: 4px;
-    width: 60px;
+    width: 70px;
     height: 24px;
     margin-right: 16px;
 }

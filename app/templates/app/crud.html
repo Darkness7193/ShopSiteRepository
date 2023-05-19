@@ -72,8 +72,14 @@
                     <td>{{product.count}}</td>
                     <td>
                         <a class="create-btn"><i class="material-icons">&#xE03B;</i></a>
-                        <a class="update-btn"><i class="material-icons">&#xE254;</i></a>
-                        <a class="delete-btn"><i class="material-icons">&#xE872;</i></a>
+
+                        {% if user.profile.status == 'Администратор' or user.profile.status == 'Продавец' %}
+                            <a class="update-btn"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete-btn"><i class="material-icons">&#xE872;</i></a>
+                        {% else %}
+                            <a class="update-btn unactive"><i class="material-icons">&#xE254;</i></a>
+                            <a class="delete-btn unactive"><i class="material-icons">&#xE872;</i></a>
+                        {% endif %}
                     </td>
                 </tr>
             {% endfor %}
