@@ -49,14 +49,22 @@ def create_product(request):
 @csrf_exempt
 def update_product(request):
     update_id = request.POST.get('update_id')
+    name = request.POST.get('name')
+    price = request.POST.get('price')
+    descriptions = request.POST.get('description')
+    count = request.POST.get('count')
 
     if update_id:
         product = Product.objects.get(id=update_id)
 
-        product.name = request.POST.get('name')
-        product.price = Decimal(request.POST.get('price'))
-        product.description = request.POST.get('description')
-        product.count = request.POST.get('count')
+        if name:
+            product.name = name
+        if price:
+            product.price = Decimal(price)
+        if descriptions:
+            product.description = descriptions
+        if count:
+            product.count = count
 
         product.save()
 

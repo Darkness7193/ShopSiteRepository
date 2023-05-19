@@ -1,10 +1,17 @@
 $(document).ready(function() {
     $(document).on("click", ".update-btn", function () {
         create_mode = "update";
+        let fields;
         let tr = $(this).parents("tr");
 
+        if (user_status === "Администратор") {
+            fields = "td:not(:last-child)";
+        } else {
+            fields = "td:nth-child(4)";
+        }
+
         let headers = $('th');
-        tr.find("td:not(:last-child)").each(function (field) {
+        tr.find(fields).each(function (field) {
             let name = headers[field].id;
             $(this).html(`<input 
                 type="text" 
