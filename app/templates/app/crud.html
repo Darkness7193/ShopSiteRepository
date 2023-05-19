@@ -31,11 +31,11 @@
     let delete_product_view = '{% url 'delete_product' %}';
     let update_product_view = '{% url 'update_product' %}';
     let create_mode;
-    var user_status = {{ user.profile.status }};
 </script>
 
 
 <body>
+{{ request.user.profile.status|json_script:"user_status" }}
 {% include 'ShopSite/header.html' %}
 <div class="container-lg table-wrapper">
     <div style="display:flex; padding-bottom: 7px;">

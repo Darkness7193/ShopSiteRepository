@@ -16,7 +16,6 @@ function ajaxUpdate(tr) {
 	let data = {'update_id': tr.attr("id")};
 	let inputs = $('input[class=form-control]');
 	inputs.each( function(){
-		console.log($(this));
 		let name = $(this)[0].getAttribute('name');
 		data[name] = $(this)[0].value;
 	});

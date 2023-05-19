@@ -4,6 +4,7 @@ $(document).ready(function() {
         let fields;
         let tr = $(this).parents("tr");
 
+        const user_status = JSON.parse(document.getElementById('user_status').textContent);
         if (user_status === "Администратор") {
             fields = "td:not(:last-child)";
         } else {
