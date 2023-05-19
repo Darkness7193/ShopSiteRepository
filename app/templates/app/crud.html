@@ -54,7 +54,12 @@
                 <th id="price">Цена</th>
                 <th id="description">Описание</th>
                 <th id="count">Количество</th>
-                <th><button type="button" style="background: var(--neutral-color); border:0;" class="create-new"><i class="fa fa-plus"></i></button></th>
+                <th>
+                    {% if user.profile.status == 'Администратор' %}
+                        <button type="button" style="background: var(--neutral-color); border:0;" class="create-new"><i class="fa fa-plus"></i></button>
+                    {% else %}
+                        <button type="button" style="background: var(--neutral-color); border:0;" class="create-new unactive"><i class="fa fa-plus"></i></button>
+                    {% endif %}</th>
             </tr>
         </thead>
         <tbody>
