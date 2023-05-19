@@ -1,27 +1,29 @@
 function ajaxCreate() {
+	let data = {};
+	let inputs = $('input[class=form-control]');
+	inputs.each( function(){
+		let name = $(this)[0].getAttribute('name');
+		data[name] = $(this)[0].value;
+	});
 	$.ajax({
 		method: 'post',
 		url: create_product_view,
-		data: {
-			'name': $('#name-input')[0].value,
-			'price': $('#price-input')[0].value,
-			'description': $('#description-input')[0].value,
-			'count': $('#count-input')[0].value,
-		},
+		data: data,
 	});
 }
 
 function ajaxUpdate(tr) {
+	let data = {'update_id': tr.attr("id")};
+	let inputs = $('input[class=form-control]');
+	inputs.each( function(){
+		console.log($(this));
+		let name = $(this)[0].getAttribute('name');
+		data[name] = $(this)[0].value;
+	});
     $.ajax({
         method: 'post',
         url: update_product_view,
-        data: {
-            'update_id': tr.attr("id"),
-			'name': $('#name-input')[0].value,
-			'price': $('#price-input')[0].value,
-			'description': $('#description-input')[0].value,
-			'count': $('#count-input')[0].value,
-        },
+        data: data,
     });
 }
 

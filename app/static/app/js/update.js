@@ -5,7 +5,7 @@ $(document).ready(function() {
 
         let headers = $('th');
         tr.find("td:not(:last-child)").each(function (field) {
-            let name = headers[field].id+'-input';
+            let name = headers[field].id;
             $(this).html(`<input 
                 type="text" 
                 class="form-control" 
