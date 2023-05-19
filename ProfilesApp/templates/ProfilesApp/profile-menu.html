@@ -15,7 +15,9 @@
     <div class="dropdown">
         <button class="dropbtn">{{ user }}</button>
         <div class="dropdown-content" style="right:0;">
-            <a href="{% url 'user-status-change' %}"> Сменить статус </a>
+             {% if user.profile.status == 'Администратор' %}
+                 <a href="{% url 'user-status-change' %}"> Сменить статус </a>
+             {% endif %}
             <a href="{% url 'username-change' %}"> Сменить логин </a>
             <a href="{% url 'password-change' %}"> Сменить пароль </a>
             <a style="color: red" href="{% url 'log-out' %}"> Выйти </a>

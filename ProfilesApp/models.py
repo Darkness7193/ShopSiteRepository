@@ -7,7 +7,7 @@ from ShopSite.MyShortcuts import MyManager
 class Profile(Model):
     objects = MyManager()
 
-    user = OneToOneField(User, on_delete=CASCADE)
+    user = OneToOneField(User, related_name='profile', on_delete=CASCADE)
     status = CharField(
         max_length=30,
         default='Покупатель',
