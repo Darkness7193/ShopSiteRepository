@@ -1,13 +1,23 @@
-function createInput(id, text) {
-    return `<input 
-        type="text" 
-        class="field-changer" 
-        value="${text}"
-        name="${id}"
-        id="${id}"
-    >`
+function get_validation(header_id) {
+    switch (header_id) {
+        case 'price':
+            return 'type="number" oninput="this.value = Math.abs(this.value)"';
+        case 'count':
+            return 'type="number" step="1" oninput="this.value = Math.abs(this.value)"';
+        default:
+            return 'type="text"';
+    }
 }
 
+function createInput(header_id, text) {
+    return `<input 
+        class="field-changer" 
+        value="${text}"
+        name="${header_id}"
+        id="${header_id}"
+        ${get_validation(header_id)}
+    >`
+}
 
 $(document).ready(function() {
     $(document).on("click", ".update-btn", function () {
@@ -23,10 +33,8 @@ $(document).ready(function() {
         }
 
         let headers = $('th');
-        tr.find(fields).each(function (field) {
-            let id = headers[field].id;
-            let text = $(this).text();
-            $(this).html(createInput(id, text));
+        tr.find(fields).each(function (i) {
+            $(this).html(createInput(headers[i].id, $(this).text()));
         });
 
         tr.find(".creating-end-btn, .update-btn").toggle();
