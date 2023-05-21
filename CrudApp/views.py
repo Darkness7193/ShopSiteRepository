@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from app.models import Product
+from CrudApp.models import Product
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from decimal import Decimal
@@ -21,7 +21,7 @@ def crud(request):
     else:
         context = {'products': Product.objects.all()}
 
-    return render(request, 'app/crud.html', context)
+    return render(request, 'CrudApp/crud.html', context)
 
 
 @csrf_exempt

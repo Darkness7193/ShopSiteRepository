@@ -1,5 +1,5 @@
 from django.urls import path
-from app.views import crud, delete_product, create_product, update_product
+from CrudApp.views import crud, delete_product, create_product, update_product
 
 urlpatterns = [
     path('crud/', crud, name='crud'),
