@@ -1,7 +1,7 @@
 function createInput(id, text) {
     return `<input 
         type="text" 
-        class="record-changer" 
+        class="field-changer" 
         value="${text}"
         name="${id}"
         id="${id}"
@@ -24,8 +24,9 @@ $(document).ready(function() {
 
         let headers = $('th');
         tr.find(fields).each(function (field) {
-            let tr_input = createInput(headers[field].id, $(this).text());
-            $(this).html(tr_input);
+            let id = headers[field].id;
+            let text = $(this).text();
+            $(this).html(createInput(id, text));
         });
 
         tr.find(".create-btn, .update-btn").toggle();
