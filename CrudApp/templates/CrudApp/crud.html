@@ -39,14 +39,13 @@
 {% include 'ShopSite/header.html' %}
 <div class="container-lg table-wrapper">
     <div style="display:flex; padding-bottom: 7px;">
-            <div class="h-w-fit-content"></div>
-            <form class="search-form" method="post">
-                {% csrf_token %}
-                <div class="arrange--V">
-                    <div class="helper"></div>
-                    <input class="search-input" type="text" placeholder="Фильтр" name="products_search">
-                </div>
-            </form>
+        <div class="h-w-fit-content"></div>
+        <form class="search-form" method="post">
+            {% csrf_token %}
+            <button type="submit" value="" class="anti-search-btn"></button>
+            <button type="submit" class="search-btn"></button>
+            <input class="search-input" type="text" placeholder="Фильтр" name="products_search" autofocus>
+        </form>
     </div>
     <table class="table table-bordered">
         <thead>
