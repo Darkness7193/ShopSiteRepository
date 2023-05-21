@@ -26,7 +26,7 @@ function ajaxUpdate(tr) {
     });
 }
 
-function is_validated(inputs) {
+function is_empty(inputs) {
 	let empty = false;
 	inputs.each(function(){
 		if(!$(this).val()){
@@ -44,7 +44,7 @@ $(document).ready(function(){
 		let tr = $(this).parents("tr");
 		let inputs = tr.find('input[type="text"]');
 
-		if (is_validated(inputs)) {
+		if (is_empty(inputs)) {
 			tr.find(".error").first().focus();
 		} else {
 			if (create_mode === "create") {
