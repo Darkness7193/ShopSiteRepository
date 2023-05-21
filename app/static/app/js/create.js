@@ -1,28 +1,28 @@
 function ajaxCreate() {
-	let data = {};
+	let inputs_data = {};
 	let inputs = $('input[class=form-control]');
 	inputs.each( function(){
 		let name = $(this)[0].getAttribute('name');
-		data[name] = $(this)[0].value;
+		inputs_data[name] = $(this)[0].value;
 	});
 	$.ajax({
 		method: 'post',
 		url: create_product_view,
-		data: data,
+		data: inputs_data,
 	});
 }
 
 function ajaxUpdate(tr) {
-	let data = {'update_id': tr.attr("id")};
+	let inputs_data = {'update_id': tr.attr("id")};
 	let inputs = $('input[class=form-control]');
 	inputs.each( function(){
 		let name = $(this)[0].getAttribute('name');
-		data[name] = $(this)[0].value;
+		inputs_data[name] = $(this)[0].value;
 	});
     $.ajax({
         method: 'post',
         url: update_product_view,
-        data: data,
+        data: inputs_data,
     });
 }
 
