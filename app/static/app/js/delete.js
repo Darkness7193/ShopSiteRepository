@@ -9,7 +9,6 @@ function ajaxDelete(tr) {
 $(document).ready(function() {
     $(document).on("click", ".delete-btn", function(){
         let tr = $(this).parents("tr").first();
-        console.log(tr);
         $().click(ajaxDelete(tr));
         $(".creating-beg").removeAttr("disabled");
         tr.remove();

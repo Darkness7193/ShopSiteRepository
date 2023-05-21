@@ -1,9 +1,22 @@
 let inputs_tr = `
 <tr id="inputs_tr">
 	<td><input type="text" class="field-changer" name="name" id="name"></td>
-	<td><input type="text" class="field-changer" name="price" id="price"></td>
+	<td><input 
+		class="field-changer" 
+		name="price" 
+		id="price"
+		type="number" 
+		oninput="this.value = Math.abs(this.value)"
+	></td>
 	<td><input type="text" class="field-changer" name="description" id="description"></td>
-	<td><input type="text" class="field-changer" name="count" id="count"></td>
+	<td><input 
+		class="field-changer" 
+		name="count" 
+		id="count"
+		type="number" 
+		step="1"
+		oninput="this.value = Math.abs(this.value)"
+	></td>
 	<td>
 	    <a class="creating-end-btn"><i class="material-icons">&#xE03B;</i></a>
 	    <a class="update-btn"><i class="material-icons">&#xE254;</i></a>

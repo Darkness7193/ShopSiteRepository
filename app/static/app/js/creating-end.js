@@ -45,7 +45,7 @@ function is_empty(inputs) {
 $(document).ready(function(){
     $(document).on("click", ".creating-end-btn", function(){
 		let tr = $(this).parents("tr").first();
-		let inputs = tr.find('input[type="text"]');
+		let inputs = tr.find('input[class="field-changer"]');
 
 		if (is_empty(inputs)) {
 			tr.find(".error").first().focus();
