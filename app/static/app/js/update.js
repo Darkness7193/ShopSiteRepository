@@ -16,7 +16,7 @@ $(document).ready(function() {
             let name = headers[field].id;
             $(this).html(`<input 
                 type="text" 
-                class="form-control" 
+                class="record-changer" 
                 value="${$(this).text()}"
                 name="${name}"
                 id="${name}"

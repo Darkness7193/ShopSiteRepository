@@ -1,9 +1,9 @@
 let input_tr = `
 <tr id="input_tr">
-	<td><input type="text" class="form-control" name="name" id="name"></td>
-	<td><input type="text" class="form-control" name="price" id="price"></td>
-	<td><input type="text" class="form-control" name="description" id="description"></td>
-	<td><input type="text" class="form-control" name="count" id="count"></td>
+	<td><input type="text" class="record-changer" name="name" id="name"></td>
+	<td><input type="text" class="record-changer" name="price" id="price"></td>
+	<td><input type="text" class="record-changer" name="description" id="description"></td>
+	<td><input type="text" class="record-changer" name="count" id="count"></td>
 	<td>
 	    <a class="create-btn"><i class="material-icons">&#xE03B;</i></a>
 	    <a class="update-btn"><i class="material-icons">&#xE254;</i></a>

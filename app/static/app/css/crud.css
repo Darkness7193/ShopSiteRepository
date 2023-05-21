@@ -70,7 +70,7 @@ table.table td a.create-btn i {
     top: 3px;
 }
 
-table.table .form-control {
+table.table .record-changer {
     height: 28px;
     width: 95%;
     line-height: 32px;
@@ -82,7 +82,7 @@ table.table .form-control {
     outline: none;
 }
 
-table.table .form-control.error {
+table.table .record-changer.error {
     border-color: #f50000;
 }
 

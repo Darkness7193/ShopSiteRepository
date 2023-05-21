@@ -1,6 +1,6 @@
 function ajaxCreate() {
 	let inputs_data = {};
-	let inputs = $('input[class=form-control]');
+	let inputs = $('input[class=record-changer]');
 	inputs.each( function(){
 		let name = $(this)[0].getAttribute('name');
 		inputs_data[name] = $(this)[0].value;
@@ -14,7 +14,7 @@ function ajaxCreate() {
 
 function ajaxUpdate(tr) {
 	let inputs_data = {'update_id': tr.attr("id")};
-	let inputs = $('input[class=form-control]');
+	let inputs = $('input[class=record-changer]');
 	inputs.each( function(){
 		let name = $(this)[0].getAttribute('name');
 		inputs_data[name] = $(this)[0].value;
