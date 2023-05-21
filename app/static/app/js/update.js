@@ -1,3 +1,14 @@
+function createInput(id, text) {
+    return `<input 
+        type="text" 
+        class="record-changer" 
+        value="${text}"
+        name="${id}"
+        id="${id}"
+    >`
+}
+
+
 $(document).ready(function() {
     $(document).on("click", ".update-btn", function () {
         create_mode = "update";
@@ -13,14 +24,8 @@ $(document).ready(function() {
 
         let headers = $('th');
         tr.find(fields).each(function (field) {
-            let name = headers[field].id;
-            $(this).html(`<input 
-                type="text" 
-                class="record-changer" 
-                value="${$(this).text()}"
-                name="${name}"
-                id="${name}"
-            >`);
+            let tr_input = createInput(headers[field].id, $(this).text());
+            $(this).html(tr_input);
         });
 
         tr.find(".create-btn, .update-btn").toggle();
