@@ -24,7 +24,9 @@ $(document).ready(function() {
 
         let headers = $('th');
         tr.find(fields).each(function (field) {
-            $(this).html(createInput(headers[field].id, $(this).text()));
+            let id = headers[field].id;
+            let text = $(this).text();
+            $(this).html(createInput(id, text));
         });
 
         tr.find(".creating-end-btn, .update-btn").toggle();
