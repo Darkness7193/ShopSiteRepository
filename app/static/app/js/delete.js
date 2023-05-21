@@ -11,7 +11,7 @@ $(document).ready(function() {
         let tr = $(this).parents("tr").first();
         console.log(tr);
         $().click(ajaxDelete(tr));
-        $(".create-new").removeAttr("disabled");
+        $(".creating-beg").removeAttr("disabled");
         tr.remove();
     });
 });

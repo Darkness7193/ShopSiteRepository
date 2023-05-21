@@ -28,7 +28,7 @@ table.table th:last-child {
     width: 85px;
 }
 
-.table-title .create-new i {
+.table-title .creating-beg i {
     margin-right: 4px;
 }
 
@@ -107,7 +107,7 @@ table.table td .create-btn {
     outline: none;
 }
 
-.create-new {
+.creating-beg {
     border-radius: 4px;
     width: 70px;
     height: 24px;

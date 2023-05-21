@@ -28,6 +28,6 @@ $(document).ready(function() {
         });
 
         tr.find(".create-btn, .update-btn").toggle();
-        $(".create-new").attr("disabled", "disabled");
+        $(".creating-beg").attr("disabled", "disabled");
     });
 });

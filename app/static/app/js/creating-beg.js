@@ -13,7 +13,7 @@ let inputs_tr = `
 `;
 
 $(document).ready(function(){
-    $(document).on("click", ".create-new", function(){
+    $(document).on("click", ".creating-beg", function(){
 		create_mode = "create";
     	$("table").append(inputs_tr);
 

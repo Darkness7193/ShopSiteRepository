@@ -58,7 +58,7 @@ $(document).ready(function(){
 			});
 
 			tr.find(".create-btn, .update-btn").toggle();
-			$(".create-new").removeAttr("disabled");
+			$(".creating-beg").removeAttr("disabled");
         }
     });
 });
