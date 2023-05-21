@@ -5,7 +5,7 @@ let inputs_tr = `
 	<td><input type="text" class="field-changer" name="description" id="description"></td>
 	<td><input type="text" class="field-changer" name="count" id="count"></td>
 	<td>
-	    <a class="create-btn"><i class="material-icons">&#xE03B;</i></a>
+	    <a class="creating-end-btn"><i class="material-icons">&#xE03B;</i></a>
 	    <a class="update-btn"><i class="material-icons">&#xE254;</i></a>
 	    <a class="delete-btn"><i class="material-icons">&#xE872;</i></a>
 	</td>
@@ -17,7 +17,7 @@ $(document).ready(function(){
 		create_mode = "create";
     	$("table").append(inputs_tr);
 
-		$("#inputs_tr").find(".create-btn, .update-btn").toggle();
+		$("#inputs_tr").find(".creating-end-btn, .update-btn").toggle();
 
 		$(this).attr("disabled", "disabled");
     });

@@ -27,7 +27,7 @@ $(document).ready(function() {
             $(this).html(createInput(headers[field].id, $(this).text()));
         });
 
-        tr.find(".create-btn, .update-btn").toggle();
+        tr.find(".creating-end-btn, .update-btn").toggle();
         $(".creating-beg").attr("disabled", "disabled");
     });
 });

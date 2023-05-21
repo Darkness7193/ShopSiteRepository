@@ -48,7 +48,7 @@ table.table td a {
     min-width: 24px;
 }
 
-table.table td a.create-btn {
+table.table td a.creating-end-btn {
     color: #27C46B;
     border-radius: 4px;
 }
@@ -63,7 +63,7 @@ table.table td a.delete-btn {
     border-radius: 4px;
 }
 
-table.table td a.create-btn i {
+table.table td a.creating-end-btn i {
     font-size: 24px;
     margin-right: -1px;
     position: relative;
@@ -86,7 +86,7 @@ table.table .field-changer.error {
     border-color: #f50000;
 }
 
-table.table td .create-btn {
+table.table td .creating-end-btn {
     display: none;
 }
 

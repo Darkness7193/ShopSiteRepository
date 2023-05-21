@@ -40,7 +40,7 @@ function is_empty(inputs) {
 }
 
 $(document).ready(function(){
-    $(document).on("click", ".create-btn", function(){
+    $(document).on("click", ".creating-end-btn", function(){
 		let tr = $(this).parents("tr").first();
 		let inputs = tr.find('input[type="text"]');
 
@@ -57,7 +57,7 @@ $(document).ready(function(){
 				$(this).parent("td").html($(this).val());
 			});
 
-			tr.find(".create-btn, .update-btn").toggle();
+			tr.find(".creating-end-btn, .update-btn").toggle();
 			$(".creating-beg").removeAttr("disabled");
         }
     });
