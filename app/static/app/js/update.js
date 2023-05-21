@@ -24,9 +24,7 @@ $(document).ready(function() {
 
         let headers = $('th');
         tr.find(fields).each(function (field) {
-            let id = headers[field].id;
-            let text = $(this).text();
-            $(this).html(createInput(id, text));
+            $(this).html(createInput(headers[field].id, $(this).text()));
         });
 
         tr.find(".create-btn, .update-btn").toggle();
