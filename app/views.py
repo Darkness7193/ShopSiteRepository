@@ -43,7 +43,7 @@ def create_product(request):
         count=request.POST.get('count'),
     )
     product.save()
-    return JsonResponse({})
+    return JsonResponse({'new_product_id': product.id})
 
 
 @csrf_exempt

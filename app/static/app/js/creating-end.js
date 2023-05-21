@@ -1,4 +1,4 @@
-function ajaxCreate() {
+function ajaxCreate(tr) {
 	let inputs_data = {};
 	let inputs = $('input[class=field-changer]');
 	inputs.each( function(){
@@ -9,6 +9,9 @@ function ajaxCreate() {
 		method: 'post',
 		url: create_product_view,
 		data: inputs_data,
+		success: function(data) {
+			tr[0].setAttribute('data-product-id', data['new_product_id']);
+		},
 	});
 }
 
@@ -48,7 +51,7 @@ $(document).ready(function(){
 			tr.find(".error").first().focus();
 		} else {
 			if (create_mode === "create") {
-				$().click(ajaxCreate());
+				$().click(ajaxCreate(tr));
 			} else if (create_mode=== "update") {
 				$().click(ajaxUpdate(tr));
 			}
