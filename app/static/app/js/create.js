@@ -13,7 +13,7 @@ function ajaxCreate() {
 }
 
 function ajaxUpdate(tr) {
-	let inputs_data = {'update_id': tr.attr("id")};
+	let inputs_data = {'update_id': tr[0].dataset.productId};
 	let inputs = $('input[class=field-changer]');
 	inputs.each( function(){
 		let name = $(this)[0].getAttribute('name');
@@ -41,7 +41,7 @@ function is_empty(inputs) {
 
 $(document).ready(function(){
     $(document).on("click", ".create-btn", function(){
-		let tr = $(this).parents("tr");
+		let tr = $(this).parents("tr").first();
 		let inputs = tr.find('input[type="text"]');
 
 		if (is_empty(inputs)) {
