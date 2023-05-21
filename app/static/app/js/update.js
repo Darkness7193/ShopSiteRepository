@@ -1,9 +1,14 @@
+function bigger_than_zero(n) {
+    if (n > 0) { return n;}
+	else       { return 0;}
+}
+
 function get_validation(header_id) {
     switch (header_id) {
         case 'price':
-            return 'type="number" oninput="this.value = Math.abs(this.value)"';
+            return 'type="number" oninput="this.value = bigger_than_zero(this.value)"';
         case 'count':
-            return 'type="number" step="1" oninput="this.value = Math.abs(this.value)"';
+            return 'type="number" step="1" oninput="this.value = bigger_than_zero(this.value)"';
         default:
             return 'type="text"';
     }

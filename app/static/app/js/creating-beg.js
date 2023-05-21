@@ -1,3 +1,9 @@
+function bigger_than_zero(n) {
+    if (n > 0) { return n;}
+	else {       return 0;}
+}
+
+
 let inputs_tr = `
 <tr id="inputs_tr">
 	<td><input type="text" class="field-changer" name="name" id="name"></td>
@@ -6,7 +12,7 @@ let inputs_tr = `
 		name="price" 
 		id="price"
 		type="number" 
-		oninput="this.value = Math.abs(this.value)"
+		oninput="this.value = bigger_than_zero(this.value)"
 	></td>
 	<td><input type="text" class="field-changer" name="description" id="description"></td>
 	<td><input 
@@ -15,7 +21,7 @@ let inputs_tr = `
 		id="count"
 		type="number" 
 		step="1"
-		oninput="this.value = Math.abs(this.value)"
+		oninput="this.value = bigger_than_zero(this.value)"
 	></td>
 	<td>
 	    <a class="creating-end-btn"><i class="material-icons">&#xE03B;</i></a>
