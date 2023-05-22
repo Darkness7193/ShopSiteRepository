@@ -24,6 +24,11 @@ def crud(request):
     return render(request, 'CrudApp/crud.html', context)
 
 
+def history(request):
+    context = {}
+    return render(request, 'CrudApp/history.html', context)
+
+
 @csrf_exempt
 def delete_product(request):
     delete_id = request.POST.get('delete_id')
