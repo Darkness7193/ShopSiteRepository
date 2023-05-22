@@ -32,10 +32,11 @@ function ajaxUpdate(tr) {
 function is_empty(inputs) {
 	let empty = false;
 	inputs.each(function(){
-		if(!$(this).val()){
+		let text = $(this).val();
+		if (!text === true) {
 			$(this).addClass("error");
 			empty = true;
-		} else{
+		} else {
 		    $(this).removeClass("error");
 		}
 	});
@@ -44,8 +45,9 @@ function is_empty(inputs) {
 
 $(document).ready(function(){
     $(document).on("click", ".creating-end-btn", function(){
+
 		let tr = $(this).parents("tr").first();
-		let inputs = tr.find('input[class="field-changer"]');
+		let inputs = $(".field-changer");
 
 		if (is_empty(inputs)) {
 			tr.find(".error").first().focus();

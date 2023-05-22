@@ -36,9 +36,10 @@ def delete_product(request):
 
 @csrf_exempt
 def create_product(request):
+    price = request.POST.get('price')
     product = Product(
         name=request.POST.get('name'),
-        price=Decimal(request.POST.get('price')),
+        price=Decimal(price),
         description=request.POST.get('description'),
         count=request.POST.get('count'),
     )
