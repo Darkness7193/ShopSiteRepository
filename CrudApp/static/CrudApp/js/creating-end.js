@@ -1,14 +1,19 @@
-function ajaxCreate(tr) {
+function getInputsData() {
 	let inputs_data = {};
-	let inputs = $('input[class=field-changer]');
+	let inputs = $('.field-changer');
 	inputs.each( function(){
 		let name = $(this)[0].getAttribute('name');
 		inputs_data[name] = $(this)[0].value;
 	});
+	return inputs_data;
+}
+
+
+function ajaxCreate(tr) {
 	$.ajax({
 		method: 'post',
 		url: create_product_view,
-		data: inputs_data,
+		data: getInputsData(),
 		success: function(data) {
 			tr[0].setAttribute('data-product-id', data['new_product_id']);
 		},
@@ -16,16 +21,12 @@ function ajaxCreate(tr) {
 }
 
 function ajaxUpdate(tr) {
-	let inputs_data = {'update_id': tr[0].dataset.productId};
-	let inputs = $('input[class=field-changer]');
-	inputs.each( function(){
-		let name = $(this)[0].getAttribute('name');
-		inputs_data[name] = $(this)[0].value;
-	});
+	let data = getInputsData();
+	data['update_id'] = tr[0].dataset.productId;
     $.ajax({
         method: 'post',
         url: update_product_view,
-        data: inputs_data,
+        data: data,
     });
 }
 
