@@ -13,9 +13,11 @@
 
 <body>
 {% include 'ShopSite/header.html' %}
-{% for record_save in record_saves %}
-    <p>{{ record_save }}</p>
-{% endfor %}
+<div class="container-lg table-wrapper">
+    {% for record_save in record_saves %}
+        <p>{{ record_save }}</p>
+    {% endfor %}
+</div>
 
 </body>
 </html>
