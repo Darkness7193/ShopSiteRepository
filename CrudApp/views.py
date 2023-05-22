@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from CrudApp.models import Product
+from CrudApp.models import Product, RecordSave
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from decimal import Decimal
@@ -25,7 +25,7 @@ def crud(request):
 
 
 def history(request):
-    context = {}
+    context = {'record_saves': RecordSave.objects.all()}
     return render(request, 'CrudApp/history.html', context)
 
 
