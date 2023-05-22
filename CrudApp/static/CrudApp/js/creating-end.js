@@ -34,10 +34,10 @@ function is_empty(inputs) {
 	inputs.each(function(){
 		let text = $(this).val();
 		if (!text) {
-			$(this).addClass("error");
+			$(this).addClass("is-empty");
 			empty = true;
 		} else {
-		    $(this).removeClass("error");
+		    $(this).removeClass("is-empty");
 		}
 	});
 	return empty
@@ -50,7 +50,7 @@ $(document).ready(function(){
 		let inputs = $(".field-changer");
 
 		if (is_empty(inputs)) {
-			tr.find(".error").first().focus();
+			tr.find(".is-empty").first().focus();
 		} else {
 			if (create_mode === "create") {
 				$().click(ajaxCreate(tr));
