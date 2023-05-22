@@ -31,10 +31,11 @@ function ajaxUpdate(tr) {
 
 function is_empty(inputs) {
 	let empty = false;
-	inputs.each(function(){
+	inputs.reverse().each(function(){
 		let text = $(this).val();
 		if (!text) {
 			$(this).addClass("is-empty");
+			$(this).first().focus();
 			empty = true;
 		} else {
 		    $(this).removeClass("is-empty");
@@ -49,9 +50,7 @@ $(document).ready(function(){
 		let tr = $(this).parents("tr").first();
 		let inputs = $(".field-changer");
 
-		if (is_empty(inputs)) {
-			tr.find(".is-empty").first().focus();
-		} else {
+		if (!is_empty(inputs)) {
 			if (create_mode === "create") {
 				$().click(ajaxCreate(tr));
 			} else if (create_mode=== "update") {
