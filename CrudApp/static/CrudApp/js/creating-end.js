@@ -33,7 +33,7 @@ function is_empty(inputs) {
 	let empty = false;
 	inputs.each(function(){
 		let text = $(this).val();
-		if (!text === true) {
+		if (!text) {
 			$(this).addClass("error");
 			empty = true;
 		} else {
