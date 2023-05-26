@@ -24,16 +24,19 @@ class RecordSave(Model):
     mode = CharField(
         max_length=30,
         choices=(
-            ('Create', 'Create'),
-            ('Delete', 'Delete'),
-            ('wasUpdate', 'wasUpdate')
+            ('create', 'create'),
+            ('delete', 'delete'),
+            ('update', 'update')
         ),
     )
-    product_id = PositiveIntegerField()
-    name = CharField(max_length=20)
-    price = DecimalField(max_digits=6, decimal_places=2)
-    description = CharField(max_length=400)
-    count = PositiveIntegerField()
+    product_id = PositiveIntegerField(null=True)
+    name = CharField(max_length=20, null=True)
+    price = DecimalField(max_digits=6, decimal_places=2, null=True)
+    description = CharField(max_length=400, null=True)
+    count = PositiveIntegerField(null=True)
+
+    date = DateField()
+    time = TimeField()
 
     def __str__(self):
         return f'{self.mode} {self.name} {self.price} {self.description} {self.count}'

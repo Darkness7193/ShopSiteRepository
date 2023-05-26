@@ -1,3 +1,6 @@
+import {saveInHistory} from "./history.js";
+
+
 function getInputsData() {
 	let inputs_data = {};
 	let inputs = $('.field-changer');
@@ -54,6 +57,7 @@ $(document).ready(function(){
 		if (!is_empty(inputs)) {
 			if (create_mode === "create") {
 				$().click(ajaxCreate(tr));
+				$().click(saveInHistory(tr, 'create'));
 			} else if (create_mode=== "update") {
 				$().click(ajaxUpdate(tr));
 			}

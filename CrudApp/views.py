@@ -4,6 +4,7 @@ from CrudApp.models import Product, RecordSave
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from decimal import Decimal
+from datetime import datetime
 
 
 def index(request):
@@ -73,5 +74,26 @@ def update_product(request):
             product.count = count
 
         product.save()
+
+    return JsonResponse({})
+
+
+@csrf_exempt
+def save_in_history(request):
+    price = request.POST.get('price')
+    dt = datetime.fromtimestamp(float(request.POST.get('timestamp')))
+    record_save = RecordSave()
+
+    record_save.mode = request.POST.get('mode')
+    record_save.product_id = request.POST.get('updateId')
+    record_save.name = request.POST.get('name')
+    record_save.description = request.POST.get('description')
+    record_save.count = request.POST.get('count')
+    record_save.date = dt.date()
+    record_save.time = dt.time()
+    if price:
+        record_save.price = Decimal(price)
+
+    record_save.save()
 
     return JsonResponse({})
