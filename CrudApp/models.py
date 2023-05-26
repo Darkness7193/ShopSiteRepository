@@ -81,7 +81,7 @@ class RecordSave(Model):
     time = TimeField()
 
     def __str__(self):
-        return f'{self.mode} {self.name} {self.price} {self.description} {self.count}'
+        return f'{self.mode} {self.name} {self.price} {self.description} {self.count} {self.date} {self.time}'
 
     class Meta:
         db_table = 'RecordSave'
