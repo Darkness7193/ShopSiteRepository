@@ -1,3 +1,6 @@
+import {saveInHistory} from "./history.js";
+
+
 function ajaxDelete(tr) {
     $.ajax({
         method: 'post',
@@ -11,6 +14,7 @@ $(document).ready(function() {
         let tr = $(this).parents("tr").first();
         $().click(ajaxDelete(tr));
         $(".creating-beg").removeAttr("disabled");
+        $().click(saveInHistory(tr, 'delete'));
         tr.remove();
     });
 });
