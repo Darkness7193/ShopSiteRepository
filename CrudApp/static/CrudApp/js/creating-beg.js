@@ -34,9 +34,9 @@ let inputs_tr = `
 $(document).ready(function(){
     $(document).on("click", ".creating-beg", function(){
 		create_mode = "create";
-    	$(".crud-table").append(inputs_tr);
+		let last_tr = $(inputs_tr).appendTo($(".crud-table"))
 
-		$("#inputs_tr").find(".creating-end-btn, .update-btn").toggle();
+		last_tr.find(".creating-end-btn, .update-btn").toggle();
 
 		$(this).attr("disabled", "disabled");
     });

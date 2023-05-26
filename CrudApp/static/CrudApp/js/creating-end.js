@@ -67,6 +67,7 @@ $(document).ready(function(){
 
 			tr.find(".creating-end-btn, .update-btn").toggle();
 			$(".creating-beg").removeAttr("disabled");
+			tr.removeAttr("id");
 
 			$().click(save_in_history(tr, create_mode));
         }

@@ -1,8 +1,9 @@
-from django.db.models import (ForeignKey, Model, CharField, IntegerField, TimeField, DateField,
-                              CASCADE, FloatField, SET_NULL, BooleanField, ImageField, DecimalField,
-                              PositiveIntegerField, OneToOneField)
+from django.db.models import (Model, CharField, TimeField, DateField,
+                              DecimalField, PositiveIntegerField)
 from django.contrib.auth.models import User
 from ShopSite.MyShortcuts import MyManager
+from decimal import Decimal
+from datetime import datetime
 
 
 class Product(Model):
@@ -18,6 +19,47 @@ class Product(Model):
 
     class Meta:
         db_table = 'Product'
+
+    @staticmethod
+    def record_delete(request):
+        delete_id = request.POST.get('delete_id')
+
+        if delete_id:
+            Product.objects.filter(id=int(delete_id)).delete()
+
+    @staticmethod
+    def update(request):
+        update_id = request.POST.get('update_id')
+        name = request.POST.get('name')
+        price = request.POST.get('price')
+        description = request.POST.get('description')
+        count = request.POST.get('count')
+
+        if update_id:
+            product = Product.objects.get(id=update_id)
+
+            if name:
+                product.name = name
+            if price:
+                product.price = Decimal(price)
+            if description:
+                product.description = description
+            if count:
+                product.count = count
+
+            product.save()
+
+    @staticmethod
+    def create(request):
+        price = request.POST.get('price')
+        product = Product(
+            name=request.POST.get('name'),
+            price=Decimal(price),
+            description=request.POST.get('description'),
+            count=request.POST.get('count'),
+        )
+        product.save()
+        return product.id
 
 
 class RecordSave(Model):
@@ -43,3 +85,21 @@ class RecordSave(Model):
 
     class Meta:
         db_table = 'RecordSave'
+
+    @staticmethod
+    def save_in_history(request):
+        price = request.POST.get('price')
+        dt = datetime.fromtimestamp(float(request.POST.get('timestamp')))
+        record_save = RecordSave()
+
+        record_save.mode = request.POST.get('mode')
+        record_save.product_id = request.POST.get('product_id')
+        record_save.name = request.POST.get('name')
+        record_save.description = request.POST.get('description')
+        record_save.count = request.POST.get('count')
+        record_save.date = dt.date()
+        record_save.time = dt.time()
+        if price:
+            record_save.price = Decimal(price)
+
+        record_save.save()
