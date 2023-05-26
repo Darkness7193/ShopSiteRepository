@@ -20,7 +20,7 @@
     border: 0;
 }
 
-table.table th:last-child {
+.table th:last-child {
     border: 0;
     background: transparent;
     width: 85px;
@@ -39,36 +39,36 @@ table.table th:last-child {
     font-family: 'Open Sans', sans-serif;
 }
 
-table.table td a {
+.table td a {
     cursor: pointer;
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
 }
 
-table.table td a.creating-end-btn {
+.table td a.creating-end-btn {
     color: #27C46B;
     border-radius: 4px;
 }
 
-table.table td a.update-btn {
+.table td a.update-btn {
     color: #FFC107;
     border-radius: 4px;
 }
 
-table.table td a.delete-btn {
+.table td a.delete-btn {
     color: #E34724;
     border-radius: 4px;
 }
 
-table.table td a.creating-end-btn i {
+.table td a.creating-end-btn i {
     font-size: 24px;
     margin-right: -1px;
     position: relative;
     top: 3px;
 }
 
-table.table .field-changer {
+.table .field-changer {
     height: 28px;
     width: 95%;
     line-height: 32px;
@@ -80,11 +80,11 @@ table.table .field-changer {
     outline: none;
 }
 
-table.table .field-changer.is-empty {
+.table .field-changer.is-empty {
     border-color: #f50000;
 }
 
-table.table td .creating-end-btn {
+.table td .creating-end-btn {
     display: none;
 }
 
