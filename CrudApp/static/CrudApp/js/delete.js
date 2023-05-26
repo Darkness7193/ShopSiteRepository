@@ -1,7 +1,7 @@
-import {saveInHistory} from "./history.js";
+import {save_in_history} from "./history.js";
 
 
-function ajaxDelete(tr) {
+function ajax_delete(tr) {
     $.ajax({
         method: 'post',
         url: delete_product_view,
@@ -12,9 +12,9 @@ function ajaxDelete(tr) {
 $(document).ready(function() {
     $(document).on("click", ".delete-btn", function(){
         let tr = $(this).parents("tr").first();
-        $().click(ajaxDelete(tr));
+        $().click(ajax_delete(tr));
         $(".creating-beg").removeAttr("disabled");
-        $().click(saveInHistory(tr, 'delete'));
+        $().click(save_in_history(tr, 'delete'));
         tr.remove();
     });
 });

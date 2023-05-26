@@ -14,7 +14,7 @@ function get_validation(header_id) {
     }
 }
 
-function createInput(header_id, text) {
+function create_input(header_id, text) {
     return `<input 
         class="field-changer" 
         value="${text}"
@@ -39,7 +39,7 @@ $(document).ready(function() {
 
         let headers = $('th');
         tr.find(fields).each(function (i) {
-            $(this).html(createInput(headers[i].id, $(this).text()));
+            $(this).html(create_input(headers[i].id, $(this).text()));
         });
 
         tr.find(".creating-end-btn, .update-btn").toggle();

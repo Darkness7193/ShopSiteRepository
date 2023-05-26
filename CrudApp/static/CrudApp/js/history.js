@@ -1,4 +1,4 @@
-function dictExtend(dict1, dict2){
+function dict_extend(dict1, dict2){
     for (let key in dict2){
         if(dict2.hasOwnProperty(key)){
             dict1[key] = dict2[key];
@@ -8,27 +8,27 @@ function dictExtend(dict1, dict2){
 }
 
 
-function getTrData(tr) {
-	let trData = {};
+function get_tr_data(tr) {
+	let tr_data = {};
 	let headers = $('table').find('th:not(:last)');
 	tr.children(':not(:last)').each( function(i){
-		let dataType = headers[i].getAttribute('id');
-		trData[dataType] = $(this)[0].innerText;
+		let data_type = headers[i].getAttribute('id');
+		tr_data[data_type] = $(this)[0].innerText;
 	});
-	return trData;
+	return tr_data;
 }
 
 
-export function saveInHistory(tr, saveMode) {
+export function save_in_history(tr, save_mode) {
     let save = {
-        'mode': saveMode,
+        'mode': save_mode,
         'timestamp': new Date().getTime() / 1000,
-        'productId': tr[0].dataset.productId,
+        'product_id': tr[0].dataset.productId,
     };
 
     $.ajax({
         method: 'post',
-        url: saveInHistoryView,
-        data: dictExtend(save, getTrData(tr)),
+        url: save_in_history_view,
+        data: dict_extend(save, get_tr_data(tr)),
     });
 }

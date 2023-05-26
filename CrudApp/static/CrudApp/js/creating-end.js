@@ -1,7 +1,7 @@
-import {saveInHistory} from "./history.js";
+import {save_in_history} from "./history.js";
 
 
-function getInputsData() {
+function get_inputs_data() {
 	let inputs_data = {};
 	let inputs = $('.field-changer');
 	inputs.each( function(){
@@ -12,19 +12,19 @@ function getInputsData() {
 }
 
 
-function ajaxCreate(tr) {
+function ajax_create(tr) {
 	$.ajax({
 		method: 'post',
 		url: create_product_view,
-		data: getInputsData(),
+		data: get_inputs_data(),
 		success: function(data) {
 			tr[0].setAttribute('data-product-id', data['new_product_id']);
 		},
 	});
 }
 
-function ajaxUpdate(tr) {
-	let data = getInputsData();
+function ajax_update(tr) {
+	let data = get_inputs_data();
 	data['update_id'] = tr[0].dataset.productId;
     $.ajax({
         method: 'post',
@@ -56,9 +56,9 @@ $(document).ready(function(){
 
 		if (!is_empty(inputs)) {
 			if (create_mode === "create") {
-				$().click(ajaxCreate(tr));
+				$().click(ajax_create(tr));
 			} else if (create_mode=== "update") {
-				$().click(ajaxUpdate(tr));
+				$().click(ajax_update(tr));
 			}
 
 			inputs.each(function(){
@@ -68,7 +68,7 @@ $(document).ready(function(){
 			tr.find(".creating-end-btn, .update-btn").toggle();
 			$(".creating-beg").removeAttr("disabled");
 
-			$().click(saveInHistory(tr, create_mode));
+			$().click(save_in_history(tr, create_mode));
         }
     });
 });
