@@ -34,7 +34,7 @@ let inputs_tr = `
 $(document).ready(function(){
     $(document).on("click", ".creating-beg", function(){
 		create_mode = "create";
-    	$("table").append(inputs_tr);
+    	$(".crud-table").append(inputs_tr);
 
 		$("#inputs_tr").find(".creating-end-btn, .update-btn").toggle();
 

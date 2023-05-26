@@ -1,26 +1,26 @@
-.table {
+.crud-table {
 	width: 100%;
 	margin-bottom: 20px;
 	border-collapse: collapse;
     table-layout: fixed;
 }
-.table th {
+.crud-table th {
 	font-weight: bold;
 	padding: 5px;
 	background: #efefef;
 	border: 1px solid #dddddd;
     text-align: left;
 }
-.table td {
+.crud-table td {
 	border: 1px solid #dddddd;
 	padding: 5px;
 }
 
-.table td:last-child {
+.crud-table td:last-child {
     border: 0;
 }
 
-.table th:last-child {
+.crud-table th:last-child {
     border: 0;
     background: transparent;
     width: 85px;
@@ -39,36 +39,36 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.table td a {
+.crud-table td a {
     cursor: pointer;
     display: inline-block;
     margin: 0 5px;
     min-width: 24px;
 }
 
-.table td a.creating-end-btn {
+.crud-table td a.creating-end-btn {
     color: #27C46B;
     border-radius: 4px;
 }
 
-.table td a.update-btn {
+.crud-table td a.update-btn {
     color: #FFC107;
     border-radius: 4px;
 }
 
-.table td a.delete-btn {
+.crud-table td a.delete-btn {
     color: #E34724;
     border-radius: 4px;
 }
 
-.table td a.creating-end-btn i {
+.crud-table td a.creating-end-btn i {
     font-size: 24px;
     margin-right: -1px;
     position: relative;
     top: 3px;
 }
 
-.table .field-changer {
+.crud-table .field-changer {
     height: 28px;
     width: 95%;
     line-height: 32px;
@@ -80,11 +80,11 @@
     outline: none;
 }
 
-.table .field-changer.is-empty {
+.crud-table .field-changer.is-empty {
     border-color: #f50000;
 }
 
-.table td .creating-end-btn {
+.crud-table td .creating-end-btn {
     display: none;
 }
 

@@ -10,7 +10,7 @@ function dict_extend(dict1, dict2){
 
 function get_tr_data(tr) {
 	let tr_data = {};
-	let headers = $('table').find('th:not(:last)');
+	let headers = $('.crud-table').find('th:not(:last)');
 	tr.children(':not(:last)').each( function(i){
 		let data_type = headers[i].getAttribute('id');
 		tr_data[data_type] = $(this)[0].innerText;
