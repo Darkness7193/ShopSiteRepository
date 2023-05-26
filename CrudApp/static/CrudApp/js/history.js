@@ -8,14 +8,14 @@ function dictExtend(dict1, dict2){
 }
 
 
-function getInputsData() {
-	let inputs_data = {};
-	let inputs = $('.field-changer');
-	inputs.each( function(){
-		let name = $(this)[0].getAttribute('name');
-		inputs_data[name] = $(this)[0].value;
+function getTrData(tr) {
+	let trData = {};
+	let headers = $('.crud-table').find('th:not(:last)');
+	tr.children(':not(:last)').each( function(i){
+		let dataType = headers[i].getAttribute('id');
+		trData[dataType] = $(this)[0].innerText;
 	});
-	return inputs_data;
+	return trData;
 }
 
 
@@ -29,6 +29,6 @@ export function saveInHistory(tr, saveMode) {
     $.ajax({
         method: 'post',
         url: saveInHistoryView,
-        data: dictExtend(save, getInputsData()),
+        data: dictExtend(save, getTrData(tr)),
     });
 }

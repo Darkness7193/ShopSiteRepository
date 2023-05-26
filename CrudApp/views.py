@@ -5,12 +5,14 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from decimal import Decimal
 from datetime import datetime
+from django.views.decorators.cache import never_cache
 
 
 def index(request):
     return redirect(reverse('crud'))
 
 
+@never_cache
 def crud(request):
     if request.method == 'POST':
         search_query = request.POST.get('products_search')

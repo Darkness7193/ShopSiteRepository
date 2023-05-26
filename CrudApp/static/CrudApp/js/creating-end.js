@@ -57,7 +57,6 @@ $(document).ready(function(){
 		if (!is_empty(inputs)) {
 			if (create_mode === "create") {
 				$().click(ajaxCreate(tr));
-				$().click(saveInHistory(tr, 'create'));
 			} else if (create_mode=== "update") {
 				$().click(ajaxUpdate(tr));
 			}
@@ -68,6 +67,8 @@ $(document).ready(function(){
 
 			tr.find(".creating-end-btn, .update-btn").toggle();
 			$(".creating-beg").removeAttr("disabled");
+
+			$().click(saveInHistory(tr, create_mode));
         }
     });
 });
