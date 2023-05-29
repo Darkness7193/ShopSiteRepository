@@ -71,11 +71,11 @@ class RecordSave(Model):
             ('update', 'update')
         ),
     )
-    product_id = PositiveIntegerField(null=True)
-    name = CharField(max_length=20, null=True)
-    price = DecimalField(max_digits=6, decimal_places=2, null=True)
-    description = CharField(max_length=400, null=True)
-    count = PositiveIntegerField(null=True)
+    product_id = PositiveIntegerField()
+    name = CharField(max_length=20)
+    price = DecimalField(max_digits=6, decimal_places=2)
+    description = CharField(max_length=400)
+    count = PositiveIntegerField()
 
     date = DateField()
     time = TimeField()
