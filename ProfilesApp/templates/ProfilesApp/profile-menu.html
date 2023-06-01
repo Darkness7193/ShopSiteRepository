@@ -13,7 +13,7 @@
 
 <body>
     <div class="dropdown">
-        <button class="dropbtn">{{ user }}</button>
+        <button class="dropbtn"><b>{{ user }}</b></button>
         <div class="dropdown-content" style="right:0;">
              {% if user.profile.status == 'Администратор' %}
                  <a href="{% url 'user-status-change' %}"> Сменить статус </a>

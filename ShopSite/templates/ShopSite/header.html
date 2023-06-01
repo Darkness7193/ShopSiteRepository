@@ -33,12 +33,12 @@
 
             {% else %}
 
-                <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'log-in' %}">
-                    <button> Войти </button>
+                <a class="a-btn a__header" href="{% url 'log-in' %}">
+                    <button><b> Войти </b></button>
                 </a>
 
-                <a class="a-btn a__header" style="padding-right:1%;" href="{% url 'sign-in' %}">
-                    <button> Зарегистрироваться </button>
+                <a class="a-btn a__header" style="margin-right: 10px;" href="{% url 'sign-in' %}">
+                    <button><b> Зарегистрироваться </b></button>
                 </a>
 
             {% endif %}
