@@ -81,7 +81,8 @@ class RecordSave(Model):
     time = TimeField()
 
     def __str__(self):
-        return f'{self.mode} {self.name} {self.price} {self.description} {self.count} {self.date} {self.time}'
+        time = self.time.__str__()[:-3]
+        return f'{self.mode} {self.date} {time} {self.name} {self.price} {self.description} {self.count} '
 
     class Meta:
         db_table = 'RecordSave'
@@ -90,6 +91,7 @@ class RecordSave(Model):
     def save_in_history(request):
         price = request.POST.get('price')
         dt = datetime.fromtimestamp(float(request.POST.get('timestamp')))
+        dt = dt.replace(second=0, microsecond=0)
         record_save = RecordSave()
 
         record_save.mode = request.POST.get('mode')

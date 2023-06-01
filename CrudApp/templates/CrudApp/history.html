@@ -7,15 +7,26 @@
     <meta charset="UTF-8">
     <title> История </title>
     <link rel="stylesheet" href="{% static '/css/global.css' %}">
-    <link rel="stylesheet" href="{% static 'CrudApp/css/crud.css' %}">
+    <link rel="stylesheet" href="{% static 'CrudApp/css/history.css' %}">
 </head>
-
 
 <body>
 {% include 'ShopSite/header.html' %}
-<div class="container-lg table-wrapper">
-    {% for record_save in record_saves %}
-        <p>{{ record_save }}</p>
+<div class="center--V history">
+    {% for saves_pack in saves_group_by_date %}
+        <div class="save-pack">
+            <p class="save-pack-title"> {{ saves_pack.0.date|date:"d.m.y" }}</p>
+            {% for save in saves_pack %}
+                <p class="record-save">
+                    {{ save.time|time:"G:i" }}
+                    {{ save.mode }}
+
+                    ({{ save.name }},
+                    {{ save.price }},
+                    {{ save.count }})
+                </p>
+            {% endfor %}
+        </div>
     {% endfor %}
 </div>
 

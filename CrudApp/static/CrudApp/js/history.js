@@ -23,7 +23,7 @@ export function save_in_history(tr, save_mode) {
     let save = {
         'mode': save_mode,
         'timestamp': new Date().getTime() / 1000,
-        'product_id': tr[0].dataset.productId,
+        'product_id': 0, //tr[0].dataset.productId
     };
 
     $.ajax({

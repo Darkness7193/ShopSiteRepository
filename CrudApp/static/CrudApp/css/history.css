@@ -1,0 +1,26 @@
+.history {
+    margin-top: 25px;
+
+}
+
+.save-pack {
+    border: 1px solid #a9a9a9;
+    border-radius: 4px;
+    margin-bottom: 14px;
+    padding-top: 0;
+    box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2);
+}
+
+.save-pack-title {
+    margin-top: 0;
+    padding: 10px;
+    border-bottom: 1px solid #a9a9a9;
+}
+
+.record-save {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+

@@ -32,6 +32,14 @@
     padding: 3px;
 }
 
+.upper-center {
+    position: absolute;
+    left: 50%;
+    top: 20%;
+    transform: translate(-50%, -50%);
+    padding: 3px;
+}
+
 .button {
     width: 30px;
     height: 30px;

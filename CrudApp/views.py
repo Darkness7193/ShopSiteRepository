@@ -5,6 +5,8 @@ from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.views.decorators.cache import never_cache
 from CrudApp.helpers import get_searched_products
+from django.db.models.functions import TruncMonth
+from django.db.models import Count
 
 
 def index(request):
@@ -18,7 +20,17 @@ def crud(request):
 
 
 def history(request):
-    context = {'record_saves': RecordSave.objects.all()}
+    current_date = None
+    saves_group_by_date = []
+    for save in RecordSave.objects.order_by('date'):
+        if save.date != current_date:
+            current_date = save.date
+            saves_group_by_date.append([])
+
+        saves_group_by_date[-1].append(save)
+
+
+    context = {'saves_group_by_date': saves_group_by_date}
     return render(request, 'CrudApp/history.html', context)
 
 
@@ -30,8 +42,8 @@ def delete_product(request):
 
 @csrf_exempt
 def create_product(request):
-    id = Product.create(request)
-    return JsonResponse({'new_product_id': id})
+    product_id = Product.create(request)
+    return JsonResponse({'new_product_id': product_id})
 
 
 @csrf_exempt
