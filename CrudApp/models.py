@@ -1,5 +1,5 @@
 from django.db.models import (Model, CharField, TimeField, DateField,
-                              DecimalField, PositiveIntegerField)
+                              DecimalField, PositiveIntegerField, ForeignKey, DO_NOTHING)
 from django.contrib.auth.models import User
 from ShopSite.MyShortcuts import MyManager
 from decimal import Decimal
@@ -76,6 +76,7 @@ class RecordSave(Model):
     price = DecimalField(max_digits=6, decimal_places=2)
     description = CharField(max_length=400)
     count = PositiveIntegerField()
+    salesmen = ForeignKey(User, on_delete=DO_NOTHING, null=True, blank=True)
 
     date = DateField()
     time = TimeField()
@@ -101,6 +102,7 @@ class RecordSave(Model):
         record_save.count = request.POST.get('count')
         record_save.date = dt.date()
         record_save.time = dt.time()
+        record_save.salesmen = request.user
         if price:
             record_save.price = Decimal(price)
 

@@ -19,6 +19,7 @@ def crud(request):
     return render(request, 'CrudApp/crud.html', context)
 
 
+@never_cache
 def history(request):
     current_date = None
     saves_group_by_date = []
