@@ -88,6 +88,14 @@ class RecordSave(Model):
     class Meta:
         db_table = 'RecordSave'
 
+    def ru_mode(self):
+        if   self.mode == 'create':
+            return 'создано'
+        elif self.mode == 'delete':
+            return 'удалить'
+        elif self.mode == 'update':
+            return 'обновлено'
+
     @staticmethod
     def save_in_history(request):
         price = request.POST.get('price')
