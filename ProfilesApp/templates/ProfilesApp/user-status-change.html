@@ -31,8 +31,12 @@
             <div class="arrange--V sign-in-wrap my-form">
                 <div class="helper"></div>
 
-                <label for="username"><strong> Логин для смены статуса </strong></label>
-                <input type="text" name="username" id="username" required>
+                <label for="username"><strong> Аккаунт для смены статуса </strong></label>
+                <select name="username">
+                    {% for user in users %}
+                        <option value="{{ user.username }}">{{ user.username }} ({{ user.profile.status }})</option>
+                    {% endfor %}
+                </select>
 
                 <label for="user-status-select"><strong> Новый статус аккаунта </strong></label>
                 <select name="user-status-select">

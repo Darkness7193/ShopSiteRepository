@@ -104,15 +104,10 @@ def user_status_change(request):
         form = request.POST
         username = form.get('username')
         status = form.get('user-status-select')
-        user = get_or_none(User, username=username)
-
-        if user == None:
-            messages.error(request, 'Логин не существует')
-            return HttpResponseRedirect(request.path_info)
 
         profile = Profile.objects.get(user__username=username)
         profile.status = status
         profile.save()
-        return redirect(reverse('index'))
-    else:
-        return render(request, 'ProfilesApp/user-status-change.html')
+
+    context = {'users': User.objects.all()}
+    return render(request, 'ProfilesApp/user-status-change.html', context)
