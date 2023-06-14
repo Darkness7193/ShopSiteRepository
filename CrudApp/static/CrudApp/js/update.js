@@ -1,3 +1,5 @@
+import {save_in_history} from "./history.js";
+
 function bigger_than_zero(n) {
     if (n > 0) { return n;}
 	else       { return 0;}
@@ -29,6 +31,7 @@ $(document).ready(function() {
         create_mode = "update";
         let fields;
         let tr = $(this).parents("tr");
+        $().click(save_in_history(tr, create_mode));
 
         const user_status = JSON.parse(document.getElementById('user_status').textContent);
         if (user_status === "Администратор") {

@@ -70,7 +70,10 @@ $(document).ready(function(){
 			$(".creating-beg").removeAttr("disabled");
 			tr.removeAttr("id");
 
-			$().click(save_in_history(tr, create_mode));
+			if (create_mode === "create") {
+				$().click(save_in_history(tr, create_mode));
+			}
+
         }
     });
 });
