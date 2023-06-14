@@ -38,3 +38,25 @@
     width: 100%;
 }
 
+.strict-reset-btn {
+    background-image: url('../images/reset_icon.png');
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+
+    height: 23px;
+    width: 23px;
+    border: 0;
+
+    font-size:0;
+}
+
+.save-table td:last-child {
+    border: 0;
+    background: transparent;
+    width: 25px;
+}
+
+.table-for-save-titles th:last-child {
+    width: 25px;
+}
