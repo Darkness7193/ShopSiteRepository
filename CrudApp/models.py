@@ -96,10 +96,10 @@ class RecordSave(Model):
         db_table = 'RecordSave'
 
     def ru_mode(self):
-        if   self.mode == 'create':
+        if self.mode == 'create':
             return 'создано'
         elif self.mode == 'delete':
-            return 'удалить'
+            return 'удалено'
         elif self.mode == 'update':
             return 'обновлено'
 
@@ -107,7 +107,6 @@ class RecordSave(Model):
     def save_in_history(request):
         price = request.POST.get('price')
         dt = datetime.fromtimestamp(float(request.POST.get('timestamp')))
-        dt = dt.replace(second=0, microsecond=0)
         record_save = RecordSave()
 
         record_save.mode = request.POST.get('mode')

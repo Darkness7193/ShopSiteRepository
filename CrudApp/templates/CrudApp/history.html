@@ -12,9 +12,9 @@
 </head>
 
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-<script src="{% static 'CrudApp/js/soft-reset.js' %}"></script>
+<script src="{% static 'CrudApp/js/strict-reset.js' %}"></script>
 <script>
-    let soft_reset_view = '{% url 'soft_reset' %}';
+    let strict_reset_view = '{% url 'strict_reset' %}';
     jQuery.fn.reverse = [].reverse;
 </script>
 
@@ -44,13 +44,13 @@
             <table class="save-table">
                 {% for save in saves_pack %}
                     <tr>
-                        <td>{{ save.time|time:"G:i" }}</td>
+                        <td>{{ save.time|time:"G:i:s" }}</td>
                         <td>{{ save.ru_mode }}</td>
                         <td>{{ save.name }}</td>
                         <td>{{ save.count }}</td>
                         <td>{{ save.price }}₽</td>
                         <td>{{ save.salesmen.username }}</td>
-                        <td><button class="soft-reset-btn" data-save-id="{{ save.id }}"><b> reset </b></button></td>
+                        <td><button class="strict-reset-btn" data-save-id="{{ save.id }}"><b> s_reset </b></button></td>
                     </tr>
                 {% endfor %}
             </table>

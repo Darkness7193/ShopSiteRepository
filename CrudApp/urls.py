@@ -6,7 +6,7 @@ from CrudApp.views import (
     create_product,
     update_product,
     save_in_history,
-    soft_reset
+    strict_reset
 )
 
 urlpatterns = [
@@ -17,5 +17,5 @@ urlpatterns = [
     path('create_product/', create_product, name='create_product'),
     path('update_product/', update_product, name='update_product'),
     path('save_in_history/', save_in_history, name='save_in_history'),
-    path('soft_reset/', soft_reset, name='soft_reset'),
+    path('strict_reset/', strict_reset, name='strict_reset'),
 ]
