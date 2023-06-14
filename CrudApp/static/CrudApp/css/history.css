@@ -8,13 +8,14 @@
     border-radius: 4px;
     margin-bottom: 14px;
     padding-top: 0;
+    width: 500px;
     box-shadow: 4px 4px 4px 4px rgba(0,0,0,0.2);
 }
 
 .save-pack-title {
-    margin-top: 0;
+    margin: 2px 1px 0px 1px;
+    text-align: center;
     padding: 10px;
-    border-bottom: 1px solid #a9a9a9;
 }
 
 .record-save {
@@ -22,5 +23,18 @@
     padding-right: 10px;
 }
 
+.save-table{
+    table-layout: fixed;
+    width: 100%;
+}
 
+.save-table td{
+    background: var(--save-td-color);
+}
+
+.table-for-save-titles {
+    background: var(--neutral-color);
+    table-layout: fixed;
+    width: 100%;
+}
 

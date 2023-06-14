@@ -34,10 +34,14 @@ export function save_in_history(tr, save_mode) {
 }
 
 
+function strict_reset(save_id) {
+
+}
+
 export function mode_to_ru(en_mode) {
     switch (en_mode) {
-        case 'create': return 'создано';
-        case 'delete': return 'удалено';
-        case 'update': return 'обновлено';
+        case 'create': return 'создал';
+        case 'delete': return 'удалил';
+        case 'update': return 'обновил';
     }
 }

@@ -12,22 +12,40 @@
 
 <body>
 {% include 'ShopSite/header.html' %}
-<div class="center--V history">
-    {% for saves_pack in saves_group_by_date %}
-        <div class="save-pack">
-            <p class="save-pack-title"> {{ saves_pack.0.date|date:"d.m.y" }}</p>
-            {% for save in saves_pack %}
-                <p class="record-save">
-                    {{ save.time|time:"G:i" }}
-                    {{ save.ru_mode }}
 
-                    ({{ save.name }},
-                    {{ save.price }},
-                    {{ save.count }},
-                    {{ save.salesmen.username }})
-                </p>
-            {% endfor %}
+<div class="center--V history">
+
+    <div class="save-pack">
+        <table class="table-for-save-titles">
+            <tr>
+                <th> Время </th>
+                <th> Действие </th>
+                <th> Товар </th>
+                <th> Кол-во </th>
+                <th> Цена </th>
+                <th> Кем </th>
+            </tr>
+        </table>
+    </div>
+
+    {% for saves_pack in saves_group_by_date %}
+
+        <div class="save-pack">
+            <p class="save-pack-title center--H"> {{ saves_pack.0.date|date:"d.m.y" }}</p>
+            <table class="save-table">
+                {% for save in saves_pack %}
+                    <tr>
+                        <td>{{ save.time|time:"G:i" }}</td>
+                        <td>{{ save.ru_mode }}</td>
+                        <td>{{ save.name }}</td>
+                        <td>{{ save.count }}</td>
+                        <td>{{ save.price }}₽</td>
+                        <td>{{ save.salesmen.username }}</td>
+                    </tr>
+                {% endfor %}
+            </table>
         </div>
+
     {% endfor %}
 </div>
 
