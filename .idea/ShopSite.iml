@@ -25,7 +25,7 @@
       <list>
         <option value="$MODULE_DIR$/ShopSite/templates" />
         <option value="$MODULE_DIR$/ProfilesApp/templates" />
-        <option value="$MODULE_DIR$/app/templates" />
+        <option value="$MODULE_DIR$/CrudApp/templates" />
       </list>
     </option>
   </component>

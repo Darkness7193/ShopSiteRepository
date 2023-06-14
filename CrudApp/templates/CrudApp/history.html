@@ -44,7 +44,7 @@
             <table class="save-table">
                 {% for save in saves_pack %}
                     <tr>
-                        <td>{{ save.time|time:"G:i:s" }}</td>
+                        <td>{{ save.time|time:"G:i.s" }}</td>
                         <td>{{ save.ru_mode }}</td>
                         <td>{{ save.name }}</td>
                         <td>{{ save.count }}</td>
