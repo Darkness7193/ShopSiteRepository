@@ -17,8 +17,9 @@ function ajax_create(tr) {
 		method: 'post',
 		url: create_product_view,
 		data: get_inputs_data(),
+		async: false,
 		success: function(data) {
-			tr[0].setAttribute('data-product-id', data['new_product_id']);
+			tr[0].dataset.productId = data['new_product_id'];
 		},
 	});
 }

@@ -104,7 +104,7 @@ class RecordSave(Model):
         record_save = RecordSave()
 
         record_save.mode = request.POST.get('mode')
-        record_save.product_id = request.POST.get('product_id')
+        record_save.product_id = int(request.POST.get('product_id'))
         record_save.name = request.POST.get('name')
         record_save.description = request.POST.get('description')
         record_save.count = request.POST.get('count')

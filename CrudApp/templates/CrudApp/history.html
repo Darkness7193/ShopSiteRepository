@@ -8,7 +8,15 @@
     <title> История </title>
     <link rel="stylesheet" href="{% static '/css/global.css' %}">
     <link rel="stylesheet" href="{% static 'CrudApp/css/history.css' %}">
+
 </head>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="{% static 'CrudApp/js/soft-reset.js' %}"></script>
+<script>
+    let soft_reset_view = '{% url 'soft_reset' %}';
+    jQuery.fn.reverse = [].reverse;
+</script>
 
 <body>
 {% include 'ShopSite/header.html' %}
@@ -24,6 +32,7 @@
                 <th> Кол-во </th>
                 <th> Цена </th>
                 <th> Кем </th>
+                <th> </th>
             </tr>
         </table>
     </div>
@@ -41,6 +50,7 @@
                         <td>{{ save.count }}</td>
                         <td>{{ save.price }}₽</td>
                         <td>{{ save.salesmen.username }}</td>
+                        <td><button class="soft-reset-btn" data-save-id="{{ save.id }}"><b> reset </b></button></td>
                     </tr>
                 {% endfor %}
             </table>

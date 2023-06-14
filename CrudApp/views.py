@@ -57,3 +57,27 @@ def update_product(request):
 def save_in_history(request):
     RecordSave.save_in_history(request)
     return JsonResponse({})
+
+
+@csrf_exempt
+def soft_reset(request):
+    print('python')
+    save_id = int(request.POST.get('save_id'))
+    save = RecordSave.objects.get(id=save_id)
+
+
+
+    if save.mode == 'create':
+        delete_id = save.product_id
+
+        if delete_id:
+            Product.objects.filter(id=int(delete_id)).delete()
+
+    elif save.mode == 'delete':
+        pass
+    elif save.mode == 'update':
+        pass
+
+    #save.delete()
+
+    return JsonResponse({})
