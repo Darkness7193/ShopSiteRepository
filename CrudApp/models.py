@@ -21,6 +21,15 @@ class Product(Model):
         db_table = 'Product'
 
     @staticmethod
+    def get_inputs_data(request):
+        return [
+            request.POST.get('name'),
+            request.POST.get('price'),
+            request.POST.get('description'),
+            request.POST.get('count'),
+        ]
+
+    @staticmethod
     def record_delete(request):
         delete_id = request.POST.get('delete_id')
 
@@ -28,12 +37,9 @@ class Product(Model):
             Product.objects.filter(id=int(delete_id)).delete()
 
     @staticmethod
-    def update(request):
+    def update(request, inputs):
         update_id = request.POST.get('update_id')
-        name = request.POST.get('name')
-        price = request.POST.get('price')
-        description = request.POST.get('description')
-        count = request.POST.get('count')
+        name, price, description, count = inputs
 
         if update_id:
             product = Product.objects.get(id=update_id)
@@ -50,13 +56,14 @@ class Product(Model):
             product.save()
 
     @staticmethod
-    def create(request):
-        price = request.POST.get('price')
+    def create(inputs):
+        name, price, description, count = inputs
+
         product = Product(
-            name=request.POST.get('name'),
+            name=name,
             price=Decimal(price),
-            description=request.POST.get('description'),
-            count=request.POST.get('count'),
+            description=description,
+            count=count,
         )
         product.save()
         return product.id

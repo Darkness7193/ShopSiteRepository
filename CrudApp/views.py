@@ -7,6 +7,7 @@ from django.views.decorators.cache import never_cache
 from CrudApp.helpers import get_searched_products
 from django.db.models.functions import TruncMonth
 from django.db.models import Count
+from decimal import Decimal
 
 
 def index(request):
@@ -43,13 +44,13 @@ def delete_product(request):
 
 @csrf_exempt
 def create_product(request):
-    product_id = Product.create(request)
+    product_id = Product.create(Product.get_inputs_data(request))
     return JsonResponse({'new_product_id': product_id})
 
 
 @csrf_exempt
 def update_product(request):
-    Product.update(request)
+    Product.update(request, Product.get_inputs_data(request))
     return JsonResponse({})
 
 
@@ -61,23 +62,23 @@ def save_in_history(request):
 
 @csrf_exempt
 def soft_reset(request):
-    print('python')
     save_id = int(request.POST.get('save_id'))
     save = RecordSave.objects.get(id=save_id)
 
-
-
     if save.mode == 'create':
-        delete_id = save.product_id
-
-        if delete_id:
-            Product.objects.filter(id=int(delete_id)).delete()
+        Product.objects.filter(id=int(save.product_id)).delete()
 
     elif save.mode == 'delete':
-        pass
+        product = Product(
+            name=save.name,
+            price=Decimal(save.price),
+            description=save.description,
+            count=save.count,
+        )
+        product.save()
     elif save.mode == 'update':
         pass
 
-    #save.delete()
+    save.delete()
 
     return JsonResponse({})
