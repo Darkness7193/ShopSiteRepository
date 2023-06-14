@@ -22,7 +22,6 @@ def soft_reset(save_id):
 
     if save.mode == 'create':
         Product.objects.filter(id=int(save.product_id)).delete()
-
     elif save.mode == 'delete':
         product = Product(
             id=int(save.product_id),
