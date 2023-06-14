@@ -77,7 +77,12 @@ def soft_reset(request):
         )
         product.save()
     elif save.mode == 'update':
-        pass
+        product = Product.objects.get(id=int(save.product_id))
+        product.name = save.name
+        product.price = Decimal(save.price)
+        product.description = save.description
+        product.count = save.count
+        product.save()
 
     save.delete()
 
