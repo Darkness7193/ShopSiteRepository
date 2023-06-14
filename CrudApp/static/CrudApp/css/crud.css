@@ -14,6 +14,7 @@
 .crud-table td {
 	border: 1px solid #dddddd;
 	padding: 5px;
+    overflow: hidden;
 }
 
 .crud-table td:last-child {
