@@ -6,7 +6,7 @@ def create_product_record(request):
     product = Product(
         name=request.POST.get('name'),
         price=Decimal(request.POST.get('price')),
-        description=request.POST.get('description'),
+        description=request.POST.get('description')[:400],
         count=request.POST.get('count'),
     )
     product.save()

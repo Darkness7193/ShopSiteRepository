@@ -18,7 +18,7 @@
             <div class="dropdown-top"></div>
              {% if user.profile.status == 'Администратор' %}
                  <a href="{% url 'user-status-change' %}"><b> Сменить статус </b></a>
-                 <a href="{% url 'delete-user' %}"><b> Удалить пользователя </b></a>
+                 <a href="{% url 'delete-user' %}"><b> Удалить аккаунт </b></a>
              {% endif %}
             <a href="{% url 'username-change' %}"><b> Сменить логин </b></a>
             <a href="{% url 'password-change' %}"><b> Сменить пароль </b></a>
