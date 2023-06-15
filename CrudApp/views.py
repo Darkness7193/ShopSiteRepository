@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
+
 from CrudApp.models import RecordSave
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
@@ -12,6 +13,7 @@ from CrudApp.helpers import (
     get_searched_products,
     soft_reset,
     update_product_record,
+    create_save_record,
 )
 
 
@@ -60,7 +62,7 @@ def update_product(request):
 
 @csrf_exempt
 def save_in_history(request):
-    RecordSave.save_in_history(request)
+    create_save_record(request)
     return JsonResponse({})
 
 

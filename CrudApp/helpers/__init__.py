@@ -8,6 +8,7 @@ def one_function_per_file():
         'update_product_record',
         'get_searched_products',
         'soft_reset',
+        'create_save_record',
     ]
 
     for file in files:
