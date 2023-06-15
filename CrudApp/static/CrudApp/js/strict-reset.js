@@ -1,6 +1,5 @@
 $(document).ready(function(){
     $(document).on("click", ".strict-reset-btn", function(){
-        console.log('js');
         $.ajax({
             method: 'post',
             url: strict_reset_view,

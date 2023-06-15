@@ -76,5 +76,5 @@ def strict_reset(request):
 
         if save.id == select_save_id:
             break
-
-    return history(request)
+    # Ajax mess up it and I'm dont want fix it
+    return redirect(reverse('history'))
