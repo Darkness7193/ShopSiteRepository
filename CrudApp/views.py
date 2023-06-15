@@ -1,13 +1,18 @@
 from django.shortcuts import render, redirect
 from django.urls import reverse
-from CrudApp.models import Product, RecordSave
+from CrudApp.models import RecordSave
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
 from django.views.decorators.cache import never_cache
 
 
-from CrudApp.helpers import get_searched_products, soft_reset
-
+from CrudApp.helpers import (
+    create_product_record,
+    delete_product_record,
+    get_searched_products,
+    soft_reset,
+    update_product_record,
+)
 
 
 def index(request):
@@ -37,19 +42,19 @@ def history(request):
 
 @csrf_exempt
 def delete_product(request):
-    Product.record_delete(request)
+    delete_product_record(request)
     return JsonResponse({})
 
 
 @csrf_exempt
 def create_product(request):
-    product_id = Product.create(Product.get_inputs_data(request))
+    product_id = create_product_record(request)
     return JsonResponse({'new_product_id': product_id})
 
 
 @csrf_exempt
 def update_product(request):
-    Product.update(request, Product.get_inputs_data(request))
+    update_product_record(request)
     return JsonResponse({})
 
 
@@ -71,4 +76,3 @@ def strict_reset(request):
             break
 
     return history(request)
-

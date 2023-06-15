@@ -20,54 +20,6 @@ class Product(Model):
     class Meta:
         db_table = 'Product'
 
-    @staticmethod
-    def get_inputs_data(request):
-        return [
-            request.POST.get('name'),
-            request.POST.get('price'),
-            request.POST.get('description'),
-            request.POST.get('count'),
-        ]
-
-    @staticmethod
-    def record_delete(request):
-        delete_id = request.POST.get('delete_id')
-
-        if delete_id:
-            Product.objects.filter(id=int(delete_id)).delete()
-
-    @staticmethod
-    def update(request, inputs):
-        update_id = request.POST.get('update_id')
-        name, price, description, count = inputs
-
-        if update_id:
-            product = Product.objects.get(id=update_id)
-
-            if name:
-                product.name = name
-            if price:
-                product.price = Decimal(price)
-            if description:
-                product.description = description
-            if count:
-                product.count = count
-
-            product.save()
-
-    @staticmethod
-    def create(inputs):
-        name, price, description, count = inputs
-
-        product = Product(
-            name=name,
-            price=Decimal(price),
-            description=description,
-            count=count,
-        )
-        product.save()
-        return product.id
-
 
 class RecordSave(Model):
     mode = CharField(
