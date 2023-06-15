@@ -63,7 +63,10 @@ $(document).ready(function(){
 			}
 
 			inputs.each(function(){
-				$(this).parent("td").html($(this).val());
+				let text = $(this).val();
+				let td = $(this).parent("td");
+				td.html(text);
+				td[0].setAttribute('title', text);
 			});
 
 			tr.find(".creating-end-btn, .update-btn").toggle();
