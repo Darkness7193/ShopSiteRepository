@@ -4,13 +4,13 @@ from django.contrib.auth.models import User
 from django.contrib import messages
 from django.http import HttpResponseRedirect
 from django.urls import reverse
-from ShopSite.MyShortcuts import get_or_none
-from ProfilesApp.models import Profile
 
 from .models import Profile
-from .validations import (sign_in_validation,
-                          password_change_validation,
-                          username_change_validation)
+from .validations import (
+    sign_in_validation,
+    password_change_validation,
+    username_change_validation,
+)
 
 
 def log_in(request):
@@ -111,3 +111,15 @@ def user_status_change(request):
 
     context = {'users': User.objects.all()}
     return render(request, 'ProfilesApp/user-status-change.html', context)
+
+
+def delete_user(request):
+    if request.method == 'POST':
+        form = request.POST
+        username = form.get('username')
+        profile = Profile.objects.get(user__username=username)
+        profile.user.delete()
+        profile.delete()
+
+    context = {'users': User.objects.all()}
+    return render(request, 'ProfilesApp/delete-user.html', context)
